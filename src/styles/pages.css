@@ -1,0 +1,563 @@
+/* Page Navigation */
+.page-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  z-index: 100;
+  background: transparent;
+}
+
+.vision-page .page-nav {
+  color: #000000;
+}
+
+.craft-page .page-nav,
+.fit-page .page-nav {
+  mix-blend-mode: difference;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: transform var(--transition-fast);
+}
+
+.back-button:hover {
+  transform: translateX(-5px);
+}
+
+.page-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+/* Page Content */
+.vision-page,
+.craft-page,
+.fit-page {
+  min-height: 100vh;
+  padding: calc(var(--spacing-xl) + var(--spacing-lg)) var(--spacing-md) var(--spacing-lg);
+}
+
+.vision-content,
+.craft-content,
+.fit-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Intro Section */
+.intro-section {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.page-heading {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-md);
+}
+
+.page-heading .line {
+  display: block;
+  overflow: hidden;
+}
+
+.page-heading .accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.lead-text {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+/* ============================================
+   VISION PAGE - Apollo Three-Act Structure
+   ============================================ */
+
+/* Vision Page Specific Backgrounds */
+.vision-page {
+  background: #ffffff;
+}
+
+.vision-page .intro-section {
+  background: #ffffff;
+  color: #000000;
+  padding: var(--spacing-xl) 0;
+}
+
+.vision-page .page-heading {
+  color: #000000;
+}
+
+.vision-page .page-heading .accent {
+  color: #000000;
+}
+
+.vision-page .lead-text {
+  color: #000000;
+}
+
+/* Apollo Timeline */
+.apollo-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+}
+
+/* Apollo Acts - Base */
+.apollo-act {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  border: none;
+  transition: all var(--transition-medium);
+  margin: 0;
+}
+
+/* Act 1: Pre-Launch - White Background */
+.apollo-act.act-one {
+  background: #ffffff;
+  color: #000000;
+}
+
+.apollo-act.act-one .act-header {
+  color: #000000;
+}
+
+.apollo-act.act-one .act-number,
+.apollo-act.act-one .act-meta span {
+  color: #666666;
+}
+
+.apollo-act.act-one .audio-player {
+  border-color: #000000;
+}
+
+.apollo-act.act-one .play-btn {
+  border-color: #000000;
+  color: #000000;
+}
+
+.apollo-act.act-one .act-link {
+  border-color: #000000;
+  color: #000000;
+}
+
+.apollo-act.act-one .progress-bar {
+  background: #e0e0e0;
+}
+
+.apollo-act.act-one .progress-fill {
+  background: #000000;
+}
+
+/* Act 2: Launch - Gradient Transition */
+.apollo-act.act-two {
+  background: linear-gradient(to bottom, #ffffff 0%, #000000 100%);
+  color: #ffffff;
+}
+
+.apollo-act.act-two .act-header {
+  color: #ffffff;
+}
+
+.apollo-act.act-two .act-number {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.apollo-act.act-two .act-meta span {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Act 3: Ether - Black Background */
+.apollo-act.act-three {
+  background: #000000;
+  color: #ffffff;
+}
+
+.apollo-act.act-three .act-header {
+  color: #ffffff;
+}
+
+/* Act Header */
+.act-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.act-number {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.act-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Act Content Layout */
+.act-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.act-visuals {
+  position: relative;
+}
+
+.act-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: none;
+  opacity: 1;
+}
+
+.act-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.apollo-act:hover .act-image {
+  transform: scale(1.05);
+}
+
+/* Act Description */
+.act-description p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.9;
+}
+
+.act-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* Audio Player */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border: 1px solid currentColor;
+  margin-bottom: var(--spacing-md);
+  background: transparent;
+}
+
+.play-btn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: inherit;
+  font-size: 14px;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.play-btn:hover {
+  background: currentColor;
+}
+
+.apollo-act.act-one .play-btn:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.apollo-act.act-two .play-btn:hover {
+  background: #888888;
+  color: #ffffff;
+}
+
+.apollo-act.act-three .play-btn:hover {
+  background: #888888;
+  color: #000000;
+}
+
+.play-icon {
+  display: block;
+  margin-left: 2px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(128, 128, 128, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: currentColor;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.time-display {
+  font-size: 0.875rem;
+  font-family: 'Courier New', monospace;
+  opacity: 0.8;
+  min-width: 40px;
+}
+
+/* Act Link */
+.act-link {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid currentColor;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  background: transparent;
+}
+
+.act-link:hover {
+  background: currentColor;
+}
+
+.apollo-act.act-one .act-link:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.apollo-act.act-two .act-link:hover,
+.apollo-act.act-three .act-link:hover {
+  background: #888888;
+  color: #000000;
+}
+
+/* Case Study CTA */
+.case-study-cta {
+  text-align: center;
+  padding: var(--spacing-xl);
+  border: none;
+  margin-top: var(--spacing-xl);
+  background: #ffffff;
+  color: #000000;
+}
+
+.case-study-cta h3 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.case-study-cta p {
+  opacity: 0.7;
+  margin-bottom: var(--spacing-lg);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 2px solid #000000;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  background: transparent;
+  color: #000000;
+}
+
+.cta-button:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* ============================================
+   CRAFT PAGE
+   ============================================ */
+
+.craft-page {
+  background: var(--color-bg);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.skill-category {
+  border-left: 2px solid var(--color-accent);
+  padding-left: var(--spacing-md);
+}
+
+.category-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.skill-list {
+  list-style: none;
+}
+
+.skill-list li {
+  padding: var(--spacing-xs) 0;
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+.process-section {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+}
+
+.process-section h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.process-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* ============================================
+   FIT PAGE
+   ============================================ */
+
+.fit-page {
+  background: var(--color-bg);
+}
+
+.application-answers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+}
+
+.answer-block {
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--spacing-lg);
+  border-image: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0.3)) 1;
+}
+
+.answer-number {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+  margin-bottom: var(--spacing-sm);
+}
+
+.answer-question {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.answer-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.9;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+}
+
+.cta-section h2,
+.cta-heading {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 2px solid var(--color-accent);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  background: transparent;
+}
+
+.contact-link:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-heading {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .apollo-act {
+    padding: var(--spacing-md);
+  }
+  
+  .act-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .act-title {
+    font-size: 2rem;
+  }
+}
+/* Reduce gap between intro and first act */
+.vision-page .intro-section {
+  margin-bottom: var(--spacing-md) !important;
+  padding-bottom: var(--spacing-md) !important;
+}
+
+/* Tighten up the first act spacing */
+.apollo-act.act-one {
+  padding-top: var(--spacing-lg);
+}

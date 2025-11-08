@@ -1,0 +1,224 @@
+:root {
+  /* Colors - Avici Black & White Theme */
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-accent: #ffffff;
+  --color-muted: #666666;
+  --color-border: rgba(255, 255, 255, 0.15);
+  
+  /* Typography */
+  --font-primary: 'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.6s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none; /* We'll use custom cursor */
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease, width 0.15s ease, height 0.15s ease;
+  background-color: transparent;
+}
+
+.custom-cursor.hover {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: none; /* Hide default cursor */
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: none; /* Hide default cursor */
+}
+
+/* Hide cursor on all interactive elements */
+.interactive,
+.nav-item,
+.back-button,
+.project-link,
+.contact-link {
+  cursor: none !important;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg) 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+/* Persistent Mini Audio Player */
+.mini-player {
+  position: fixed;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  z-index: 1000;
+  display: none;
+  min-width: 250px;
+  backdrop-filter: blur(10px);
+}
+
+.mini-player.active {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.mini-player-info {
+  flex: 1;
+  font-size: 0.75rem;
+  color: #ffffff;
+}
+
+.mini-player-track {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.mini-player-time {
+  opacity: 0.7;
+  font-family: 'Courier New', monospace;
+}
+
+.mini-player-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background: transparent;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mini-player-btn:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.mini-player-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mini-player-progress-fill {
+  height: 100%;
+  background: #ffffff;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+
+/* Adaptive cursor for Vision page */
+.custom-cursor.dark-cursor {
+  border-color: #888888;
+  transition: border-color 0.3s ease;
+}
+
+.custom-cursor.dark-cursor.hover {
+  border-color: #888888;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Gray cursor on Act 3 (black background) */
+.apollo-act.act-three .custom-cursor.dark-cursor {
+  border-color: #888888 !important;
+}
+
+.apollo-act.act-three .custom-cursor.dark-cursor.hover {
+  border-color: #888888 !important;
+  background-color: rgba(136, 136, 136, 0.1) !important;
+}
