@@ -29,7 +29,7 @@ export function decodeText(element: HTMLElement, duration = 2) {
 
     element.textContent = originalText
       .split('')
-      .map((char, i) => {
+    .map((_, i) => {
         if (i < revealedChars) return originalText[i];
         return CHARS[Math.floor(Math.random() * CHARS.length)];
       })
@@ -61,7 +61,7 @@ export function glitchText(element: HTMLElement) {
     const interval = setInterval(() => {
       element.textContent = originalText
         .split('')
-        .map((char, index) => {
+        .map((_, index) => {
           if (index < iterations) return originalText[index];
           return glitchChars[Math.floor(Math.random() * glitchChars.length)];
         })
@@ -87,7 +87,7 @@ export function scrambleReveal(element: HTMLElement, delay = 0) {
   const chars = originalText.split('');
   
   gsap.fromTo(
-    chars.map((_, i) => ({ char: CHARS[Math.floor(Math.random() * CHARS.length)] })),
+    chars.map(() => ({ char: CHARS[Math.floor(Math.random() * CHARS.length)] })),
     {
       duration: 0.8,
       delay: delay,

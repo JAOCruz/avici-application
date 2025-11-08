@@ -1,4 +1,3 @@
-import { gsap } from 'gsap';
 import { scrambleReveal, charByChar, fadeInBlur } from '../utils/textAnimations';
 
 export default function craft() {
