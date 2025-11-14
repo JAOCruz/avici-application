@@ -1,6 +1,7 @@
 import type { Feature, Selection, OptionFeature } from '../utils/pricing';
 import { formatCurrency, isFixedFeature, isOptionFeature } from '../utils/pricing';
 import { audioDemoMarkup, bindAudioDemo } from './AudioDemo';
+import { t, translateFeature } from '../utils/i18n';
 
 const toggleClass = (element: Element, className: string, force?: boolean) => {
   if (force === undefined) {
@@ -23,10 +24,19 @@ const renderOptionPricing = (feature: OptionFeature, selectedOptionId?: string) 
     (selectedOptionId && feature.options.find((option) => option.id === selectedOptionId)) ||
     (feature.defaultOptionId && feature.options.find((option) => option.id === feature.defaultOptionId));
 
+  let optionLabel = selected ? selected.label : '';
+  if (selected) {
+    const translatedOptions = translateFeature(feature.id, 'options');
+    if (translatedOptions && typeof translatedOptions === 'object' && !Array.isArray(translatedOptions)) {
+      const translated = (translatedOptions as Record<string, string>)[selected.id];
+      if (translated) optionLabel = translated;
+    }
+  }
+
   return `
     <div class="feature-card__price">
       ${selected ? `<span>${formatCurrency(selected.price)}</span>` : ''}
-      <small>${selected ? selected.label : 'Select an option'}</small>
+      <small>${selected ? optionLabel : t('common.selectAnOption')}</small>
     </div>
   `;
 };
@@ -35,11 +45,19 @@ const renderOptionList = (
   feature: OptionFeature,
   selectedOptionId: string | undefined,
   featureId: string
-) => `
+) => {
+  const translatedOptionsRaw = translateFeature(featureId, 'options');
+  const translatedOptions = (translatedOptionsRaw && typeof translatedOptionsRaw === 'object' && !Array.isArray(translatedOptionsRaw))
+    ? translatedOptionsRaw as Record<string, string>
+    : null;
+  
+  return `
   <fieldset class="feature-card__options" data-option-group="${featureId}">
     ${feature.options
       .map(
-        (option) => `
+        (option) => {
+          const translatedLabel = translatedOptions?.[option.id] || option.label;
+          return `
           <label class="feature-card__option">
             <input
               type="radio"
@@ -49,22 +67,29 @@ const renderOptionList = (
               data-option-id="${option.id}"
             />
             <span class="option-meta">
-              <span class="option-label">${option.label}</span>
+              <span class="option-label">${translatedLabel}</span>
               <span class="option-price">${formatCurrency(option.price)}</span>
             </span>
           </label>
-        `
+        `;
+        }
       )
       .join('')}
   </fieldset>
 `;
+};
 
-const renderHighlights = (highlights?: string[]) =>
-  highlights && highlights.length
-    ? `<ul class="feature-card__highlights">
-        ${highlights.map((item) => `<li>${item}</li>`).join('')}
-      </ul>`
-    : '';
+const renderHighlights = (featureId: string, highlights?: string[]) => {
+  if (!highlights || !highlights.length) return '';
+  const translatedHighlights = translateFeature(featureId, 'highlights');
+  // Ensure we have an array - translateFeature might return a string if translation doesn't exist
+  const items = Array.isArray(translatedHighlights) && translatedHighlights.length > 0 
+    ? translatedHighlights 
+    : highlights;
+  return `<ul class="feature-card__highlights">
+        ${items.map((item) => `<li>${item}</li>`).join('')}
+      </ul>`;
+};
 
 export const featureCardMarkup = (
   feature: Feature,
@@ -72,7 +97,11 @@ export const featureCardMarkup = (
 ) => {
   const isSelected = Boolean(selection);
   const selectedOptionId = selection?.optionId;
-  const highlightsMarkup = renderHighlights(feature.highlights);
+  const translatedName = translateFeature(feature.id, 'name');
+  const translatedDescription = translateFeature(feature.id, 'description');
+  const name = (typeof translatedName === 'string' ? translatedName : null) || feature.name;
+  const description = (typeof translatedDescription === 'string' ? translatedDescription : null) || feature.description;
+  const highlightsMarkup = renderHighlights(feature.id, feature.highlights);
   const demoMarkup =
     feature.demo === 'audio' ? `<div class="feature-card__demo">${audioDemoMarkup(feature.id)}</div>` : '';
   const optionMarkup = isOptionFeature(feature)
@@ -90,8 +119,8 @@ export const featureCardMarkup = (
     >
       <div class="feature-card__top">
         <div>
-          <h3 class="feature-card__title">${feature.name}</h3>
-          <p class="feature-card__description">${feature.description}</p>
+          <h3 class="feature-card__title">${name}</h3>
+          <p class="feature-card__description">${description}</p>
         </div>
         ${
           isFixedFeature(feature)
@@ -115,21 +144,21 @@ export const featureCardMarkup = (
                     <path d="M1 5L5 9L13 1" />
                   </svg>
                 </span>
-                <span class="checkbox-label">${feature.required ? 'Included' : isSelected ? 'Remove' : 'Add to build'}</span>
+                <span class="checkbox-label">${feature.required ? t('common.included') : isSelected ? t('common.remove') : t('common.addToBuild')}</span>
               </button>`
             : `<button
                 class="feature-card__toggle"
                 type="button"
                 aria-expanded="${isSelected}"
               >
-                <span>${isSelected ? 'Selected' : 'Choose option'}</span>
+                <span>${isSelected ? t('common.selected') : t('common.chooseOption')}</span>
                 <span class="icon">${isSelected ? '-' : '+'}</span>
               </button>`
         }
         ${
           !isOptionFeature(feature) && hasDetails
             ? `<button class="feature-card__details-button interactive" type="button" aria-expanded="false">
-                 <span>Details</span>
+                 <span>${t('common.details')}</span>
                  <span class="icon">+</span>
                </button>`
             : ''
@@ -166,7 +195,7 @@ export const updateFeatureSelectionState = (
       checkbox.setAttribute('aria-checked', String(isSelected));
       const label = checkbox.querySelector<HTMLElement>('.checkbox-label');
       if (label && !checkbox.disabled) {
-        label.textContent = isSelected ? 'Remove' : 'Add to build';
+        label.textContent = isSelected ? t('common.remove') : t('common.addToBuild');
       }
     }
   } else if (isOptionFeature(feature)) {
@@ -179,7 +208,7 @@ export const updateFeatureSelectionState = (
       const icon = toggle.querySelector('.icon');
       if (icon) icon.textContent = isSelected ? '-' : '+';
       const text = toggle.querySelector('span');
-      if (text) text.textContent = isSelected ? 'Selected' : 'Choose option';
+      if (text) text.textContent = isSelected ? t('common.selected') : t('common.chooseOption');
     }
 
     if (details) {
@@ -191,13 +220,28 @@ export const updateFeatureSelectionState = (
       const selectedOption =
         (selection?.optionId && feature.options.find((option) => option.id === selection.optionId)) ||
         (feature.defaultOptionId && feature.options.find((option) => option.id === feature.defaultOptionId));
+      const translatedOptionsRaw = translateFeature(feature.id, 'options');
+      const translatedOptions = (translatedOptionsRaw && typeof translatedOptionsRaw === 'object' && !Array.isArray(translatedOptionsRaw))
+        ? translatedOptionsRaw as Record<string, string>
+        : null;
+      const translatedLabel = selectedOption 
+        ? (translatedOptions?.[selectedOption.id] || selectedOption.label) 
+        : '';
       price.innerHTML = `
         <span>${selectedOption ? formatCurrency(selectedOption.price) : ''}</span>
-        <small>${selectedOption ? selectedOption.label : 'Select an option'}</small>
+        <small>${selectedOption ? translatedLabel : t('common.selectAnOption')}</small>
       `;
       const optionInputs = card.querySelectorAll<HTMLInputElement>('input[type="radio"][data-option-id]');
       optionInputs.forEach((input) => {
         input.checked = selectedOption ? input.dataset.optionId === selectedOption.id : false;
+        // Update label text
+        const labelSpan = input.closest('label')?.querySelector('.option-label');
+        if (labelSpan) {
+          const option = feature.options.find(opt => opt.id === input.dataset.optionId);
+          if (option) {
+            labelSpan.textContent = translatedOptions?.[option.id] || option.label;
+          }
+        }
       });
     }
     details?.querySelectorAll<HTMLElement>('[data-audio-demo-root]').forEach((demoRoot) => {

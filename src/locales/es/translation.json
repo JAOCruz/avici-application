@@ -1,0 +1,251 @@
+{
+  "common": {
+    "back": "Atrás",
+    "included": "Incluido",
+    "remove": "Eliminar",
+    "addToBuild": "Agregar al proyecto",
+    "selected": "Seleccionado",
+    "chooseOption": "Elegir opción",
+    "details": "Detalles",
+    "selectAnOption": "Selecciona una opción",
+    "getQuote": "Obtener Cotización →",
+    "yourBuild": "Tu Proyecto",
+    "selectAddons": "Selecciona complementos para ver precios",
+    "total": "Total"
+  },
+  "home": {
+    "logo": "JAOCruz",
+    "tagline": "TECNÓLOGO CREATIVO · REPÚBLICA DOMINICANA",
+    "hero": {
+      "line1": "Sitios web construidos",
+      "line2": "para marcas globales",
+      "line3": "con impulso"
+    },
+    "nav": {
+      "configurator": {
+        "number": "01",
+        "title": "Configurador",
+        "description": "Precios interactivos para proyectos personalizados"
+      },
+      "services": {
+        "number": "02",
+        "title": "Servicios",
+        "description": "Stack, características del producto y operaciones de entrega"
+      },
+      "portfolio": {
+        "number": "03",
+        "title": "Portafolio",
+        "description": "Lanzamientos recientes y casos de estudio"
+      },
+      "contact": {
+        "number": "04",
+        "title": "Contacto",
+        "description": "Inicia un proyecto o solicita un recorrido"
+      }
+    },
+    "footer": "Juan Aulio Ortiz de la Cruz · Mundial · notmeee00@gmail.com"
+  },
+  "configurator": {
+    "title": "Configurador",
+    "hero": {
+      "line1": "Construye tu próxima",
+      "line2": "experiencia web"
+    },
+    "lead": "Selecciona los módulos que necesitas. Cada elección actualiza el precio al instante para que conozcas el alcance antes de escribir una sola línea de código.",
+    "pricing": {
+      "title": "Cómo funciona el precio",
+      "description": "Cada característica es transparente y de precio fijo. Elige los niveles que coincidan con tu proyecto y el total se actualiza al instante—sin estimaciones, sin sorpresas."
+    }
+  },
+  "craft": {
+    "title": "Servicios",
+    "hero": {
+      "line1": "Ingeniero web",
+      "line2": "full-stack"
+    },
+    "skills": {
+      "coreStack": {
+        "title": "Stack Principal",
+        "items": [
+          "Arquitectura primero en TypeScript",
+          "Vite, Astro, Next.js",
+          "Sistemas de componentes React / Vue",
+          "Node, Express, Supabase"
+        ]
+      },
+      "experienceLayer": {
+        "title": "Capa de Experiencia",
+        "items": [
+          "Coreografía de movimiento GSAP",
+          "Narrativa activada por scroll",
+          "Momentos 3D y WebGL",
+          "Microinteracciones con intención"
+        ]
+      },
+      "productFeatures": {
+        "title": "Características del Producto",
+        "items": [
+          "Configuradores de precios",
+          "Gestión dinámica de contenido",
+          "Integraciones de pago",
+          "Cuentas de usuario y control de acceso"
+        ]
+      },
+      "deliveryOps": {
+        "title": "Operaciones de Entrega",
+        "items": [
+          "Presupuestos de rendimiento y accesibilidad",
+          "Analíticas y eventos automatizados",
+          "Flujos de trabajo de internacionalización",
+          "Documentación técnica y transferencia"
+        ]
+      }
+    },
+    "process": {
+      "title": "Cómo Trabajo",
+      "description": "Cada proyecto comienza con claridad: objetivos comerciales, recorridos de usuario y resultados medibles. Desde ahí diseño el sistema—arquitectura, lenguaje de diseño, movimiento e integraciones—para que cada detalle impulse el proyecto hacia adelante y esté listo para escalar una vez que lancemos."
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "hero": {
+      "line1": "Lancemos",
+      "line2": "tu próximo proyecto"
+    },
+    "lead": "Comparte la visión, elige las características y enviaré una hoja de ruta en 24 horas—líneas de tiempo, entregables y soporte de lanzamiento incluidos.",
+    "directLine": {
+      "title": "Línea Directa"
+    },
+    "services": {
+      "title": "Servicios",
+      "items": [
+        "Aplicaciones web personalizadas",
+        "Experiencias de precios interactivas",
+        "Integraciones de pago, autenticación y CMS",
+        "Analíticas de lanzamiento y automatización"
+      ],
+      "button": "Ver proceso completo"
+    },
+    "location": {
+      "title": "Ubicación",
+      "value": "Santo Domingo, República Dominicana"
+    },
+    "form": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "company": "Empresa / Marca (opcional)",
+      "companyPlaceholder": "¿Para quién estamos construyendo?",
+      "projectDescription": "Descripción del Proyecto",
+      "projectDescriptionPlaceholder": "Cuéntame sobre el proyecto, objetivos y cronograma.",
+      "selectedFeatures": "Características Seleccionadas",
+      "selectedFeaturesPlaceholder": "Las selecciones aparecerán aquí una vez que configures tu proyecto.",
+      "sendMessage": "Enviar Mensaje"
+    }
+  },
+  "portfolio": {
+    "title": "Portafolio",
+    "hero": {
+      "line1": "Trabajo reciente",
+      "line2": "construido para tracción"
+    },
+    "lead": "Lanzamientos de productos, experiencias de precios y pilas de automatización entregadas desde la estrategia hasta la escala para equipos en todo el mundo.",
+    "projects": {
+      "phaseOne": {
+        "title": "Fase 01 · Plan Estratégico",
+        "description": "Investigación fundamental, posicionamiento y arquitectura de contenido construida para anclar el resto del producto.",
+        "tags": ["Mapeo de Audiencia", "Arquitectura de Información", "Resumen del Producto"]
+      },
+      "phaseTwo": {
+        "title": "Fase 02 · Construcción de Experiencia",
+        "description": "Trabajo de interfaz de alto contacto con movimiento, audio y componentes personalizados que traducen el plan en pantallas.",
+        "tags": ["Sistemas GSAP", "Reproductor Personalizado", "Diseño a Código"]
+      },
+      "phaseThree": {
+        "title": "Fase 03 · Lanzamiento y Escala",
+        "description": "Herramientas operativas, analíticas y automatización para que el proyecto se mantenga rápido después del lanzamiento y siga entregando.",
+        "tags": ["Capa de Analíticas", "Automatización", "Operaciones CMS"]
+      },
+      "requestPlaybook": "Solicitar Guía de Fase"
+    },
+    "links": {
+      "title": "Proyectos en Vivo y Paneles",
+      "description": "Sitios de producción, paneles de productos y experiencias de marketing actualmente en uso.",
+      "visitProject": "Visitar proyecto →"
+    },
+    "cta": {
+      "title": "¿Quieres un recorrido?",
+      "description": "Reserva una llamada de estrategia y te mostraré los sistemas detrás de estos proyectos—arquitectura, líneas de tiempo y resultados.",
+      "button": "Hablar con JAOCruz →"
+    }
+  },
+  "features": {
+    "landing": {
+      "name": "Página de Inicio",
+      "description": "Página de desplazamiento única, hasta 5 secciones"
+    },
+    "animations": {
+      "name": "Animaciones Avanzadas",
+      "description": "Cursor personalizado, efectos de scroll, integración GSAP",
+      "highlights": [
+        "Narrativa basada en escenas con GSAP",
+        "Microinteracciones para señales de conversión",
+        "Presupuestos de rendimiento incluidos"
+      ]
+    },
+    "contactForm": {
+      "name": "Formulario de Contacto",
+      "description": "Protección contra spam, notificaciones por correo"
+    },
+    "audioSystems": {
+      "name": "Sistemas de Audio / Medios",
+      "description": "Reproductor de audio personalizado con listas de reproducción, enlaces de analíticas e integración de mini-reproductor",
+      "highlights": [
+        "Componentes de reproductor modulares con listas de reproducción",
+        "Transferencia de mini-reproductor + reanudación con estado",
+        "Listo para analíticas (finalización, saltos, volumen)"
+      ]
+    },
+    "multipage": {
+      "name": "Sitio Web Multi-Página",
+      "description": "Elige el tamaño de la experiencia",
+      "options": {
+        "multi-3-5": "3-5 páginas",
+        "multi-6-10": "6-10 páginas",
+        "multi-11-15": "11-15 páginas"
+      }
+    },
+    "ecommerce": {
+      "name": "Tienda E-commerce",
+      "description": "Elige el tamaño del catálogo",
+      "options": {
+        "commerce-0-50": "Hasta 50 productos",
+        "commerce-51-200": "51-200 productos",
+        "commerce-201-500": "201-500 productos"
+      }
+    },
+    "database": {
+      "name": "Backend y Base de Datos",
+      "description": "Modelo de datos y complejidad de API",
+      "options": {
+        "db-simple": "Simple (1-2 tablas)",
+        "db-medium": "Medio (3-5 tablas, API básica)",
+        "db-complex": "Complejo (6+ tablas, API completa)"
+      }
+    },
+    "cms": {
+      "name": "Gestión de Contenido",
+      "description": "Decide cómo tu equipo edita el contenido",
+      "options": {
+        "cms-basic": "Editor básico (texto/imágenes)",
+        "cms-full": "CMS completo (Strapi/Payload)"
+      }
+    }
+  },
+  "miniPlayer": {
+    "previousTrack": "Pista anterior",
+    "playOrPause": "Reproducir o pausar",
+    "nextTrack": "Siguiente pista",
+    "togglePlaylist": "Alternar lista de reproducción"
+  }
+}
+

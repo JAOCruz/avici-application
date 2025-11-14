@@ -1,3 +1,5 @@
+import { t as i18nT, translateFeature as i18nTranslateFeature } from './i18n';
+
 type DemoType = 'audio';
 
 export type FixedFeature = {
@@ -201,19 +203,45 @@ export const featureSelectionsToSummary = (selections: Selection[]) => {
     .map((selection) => {
       const feature = getFeatureById(selection.featureId);
       if (!feature) return null;
-      if (isFixedFeature(feature)) {
-        return `${feature.name} (${formatCurrency(feature.price)})`;
+      try {
+        const translatedNameRaw = i18nTranslateFeature(feature.id, 'name');
+        const name = (typeof translatedNameRaw === 'string' ? translatedNameRaw : null) || feature.name;
+        
+        if (isFixedFeature(feature)) {
+          return `${name} (${formatCurrency(feature.price)})`;
+        }
+        const option =
+          (selection.optionId && getOptionById(feature, selection.optionId)) ||
+          (feature.defaultOptionId && getOptionById(feature, feature.defaultOptionId));
+        if (!option) return name;
+        const translatedOptionsRaw = i18nTranslateFeature(feature.id, 'options');
+        const translatedOptions = (translatedOptionsRaw && typeof translatedOptionsRaw === 'object' && !Array.isArray(translatedOptionsRaw))
+          ? translatedOptionsRaw as Record<string, string>
+          : null;
+        const optionLabel = translatedOptions?.[option.id] || option.label;
+        return `${name} (${optionLabel}) (${formatCurrency(option.price)})`;
+      } catch {
+        // Fallback to original names if translation fails
+        const name = feature.name;
+        if (isFixedFeature(feature)) {
+          return `${name} (${formatCurrency(feature.price)})`;
+        }
+        const option =
+          (selection.optionId && getOptionById(feature, selection.optionId)) ||
+          (feature.defaultOptionId && getOptionById(feature, feature.defaultOptionId));
+        if (!option) return name;
+        return `${name} (${option.label}) (${formatCurrency(option.price)})`;
       }
-      const option =
-        (selection.optionId && getOptionById(feature, selection.optionId)) ||
-        (feature.defaultOptionId && getOptionById(feature, feature.defaultOptionId));
-      if (!option) return feature.name;
-      return `${feature.name} (${option.label}) (${formatCurrency(option.price)})`;
     })
     .filter(Boolean)
     .join(', ');
 
   const total = formatCurrency(calculateTotal(selections));
-  return `${items} | Total: ${total}`;
+  try {
+    const totalLabel = i18nT('common.total');
+    return `${items} | ${totalLabel}: ${total}`;
+  } catch {
+    return `${items} | Total: ${total}`;
+  }
 };
 

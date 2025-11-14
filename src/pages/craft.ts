@@ -1,71 +1,63 @@
 import { scrambleReveal, charByChar, fadeInBlur } from '../utils/textAnimations';
+import { t } from '../utils/i18n';
 
 export default function craft() {
+  const coreStackItems = (t('craft.skills.coreStack.items', { returnObjects: true }) as string[]).map(item => `<li>${item}</li>`).join('');
+  const experienceItems = (t('craft.skills.experienceLayer.items', { returnObjects: true }) as string[]).map(item => `<li>${item}</li>`).join('');
+  const productItems = (t('craft.skills.productFeatures.items', { returnObjects: true }) as string[]).map(item => `<li>${item}</li>`).join('');
+  const deliveryItems = (t('craft.skills.deliveryOps.items', { returnObjects: true }) as string[]).map(item => `<li>${item}</li>`).join('');
+
   return `
     <div class="craft-page">
       <nav class="page-nav">
         <a href="/" class="back-button interactive" data-route="home">
-          <span>←</span> Back
+          <span>←</span> ${t('common.back')}
         </a>
-        <div class="page-title">Services</div>
+        <div class="page-title">${t('craft.title')}</div>
       </nav>
 
       <main class="craft-content">
         <section class="intro-section">
           <h1 class="page-heading">
-            <span class="line">Full-stack</span>
-            <span class="line accent">web engineer</span>
+            <span class="line">${t('craft.hero.line1')}</span>
+            <span class="line accent">${t('craft.hero.line2')}</span>
           </h1>
         </section>
 
         <section class="skills-grid">
           <div class="skill-category">
-            <h3 class="category-title">Core Stack</h3>
+            <h3 class="category-title">${t('craft.skills.coreStack.title')}</h3>
             <ul class="skill-list">
-              <li>TypeScript-first architecture</li>
-              <li>Vite, Astro, Next.js</li>
-              <li>React / Vue component systems</li>
-              <li>Node, Express, Supabase</li>
+              ${coreStackItems}
             </ul>
           </div>
 
           <div class="skill-category">
-            <h3 class="category-title">Experience Layer</h3>
+            <h3 class="category-title">${t('craft.skills.experienceLayer.title')}</h3>
             <ul class="skill-list">
-              <li>GSAP motion choreography</li>
-              <li>Scroll-triggered storytelling</li>
-              <li>3D & WebGL moments</li>
-              <li>Micro-interactions with intent</li>
+              ${experienceItems}
             </ul>
           </div>
 
           <div class="skill-category">
-            <h3 class="category-title">Product Features</h3>
+            <h3 class="category-title">${t('craft.skills.productFeatures.title')}</h3>
             <ul class="skill-list">
-              <li>Pricing configurators</li>
-              <li>Dynamic content management</li>
-              <li>Payment integrations</li>
-              <li>User accounts & gating</li>
+              ${productItems}
             </ul>
           </div>
 
           <div class="skill-category">
-            <h3 class="category-title">Delivery Ops</h3>
+            <h3 class="category-title">${t('craft.skills.deliveryOps.title')}</h3>
             <ul class="skill-list">
-              <li>Performance & accessibility budgets</li>
-              <li>Automated analytics + events</li>
-              <li>Internationalization workflows</li>
-              <li>Technical documentation & handoff</li>
+              ${deliveryItems}
             </ul>
           </div>
         </section>
 
         <section class="process-section">
-          <h2>How I Work</h2>
+          <h2>${t('craft.process.title')}</h2>
           <p class="process-text">
-            Every build starts with clarity: business goals, user journeys, and measurable outcomes. 
-            From there I engineer the system—architecture, design language, motion, and integrations—so every detail 
-            pushes the project forward and is ready to scale once we launch.
+            ${t('craft.process.description')}
           </p>
         </section>
       </main>
@@ -102,4 +94,14 @@ export function init() {
   if ((window as any).cursor) {
     (window as any).cursor.refresh();
   }
+
+  // Listen for language changes
+  window.addEventListener('languageChanged', () => {
+    // Re-render page content by forcing navigation to current route
+    const router = (window as any).router;
+    if (router) {
+      const currentRoute = router.getCurrentRoute();
+      router.navigate(currentRoute, false, true); // force re-render
+    }
+  });
 }

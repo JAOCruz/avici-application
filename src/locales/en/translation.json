@@ -1,0 +1,251 @@
+{
+  "common": {
+    "back": "Back",
+    "included": "Included",
+    "remove": "Remove",
+    "addToBuild": "Add to build",
+    "selected": "Selected",
+    "chooseOption": "Choose option",
+    "details": "Details",
+    "selectAnOption": "Select an option",
+    "getQuote": "Get Quote →",
+    "yourBuild": "Your Build",
+    "selectAddons": "Select add-ons to see pricing",
+    "total": "Total"
+  },
+  "home": {
+    "logo": "JAOCruz",
+    "tagline": "CREATIVE TECHNOLOGIST · DOMINICAN REPUBLIC",
+    "hero": {
+      "line1": "Websites built",
+      "line2": "for global brands",
+      "line3": "with momentum"
+    },
+    "nav": {
+      "configurator": {
+        "number": "01",
+        "title": "Configurator",
+        "description": "Interactive pricing for custom builds"
+      },
+      "services": {
+        "number": "02",
+        "title": "Services",
+        "description": "Stack, product features, and delivery ops"
+      },
+      "portfolio": {
+        "number": "03",
+        "title": "Portfolio",
+        "description": "Recent launches and case studies"
+      },
+      "contact": {
+        "number": "04",
+        "title": "Contact",
+        "description": "Start a project or request a walkthrough"
+      }
+    },
+    "footer": "Juan Aulio Ortiz de la Cruz · Worldwide · notmeee00@gmail.com"
+  },
+  "configurator": {
+    "title": "Configurator",
+    "hero": {
+      "line1": "Build your next",
+      "line2": "web experience"
+    },
+    "lead": "Select the modules you need. Every choice updates the price instantly so you know the scope before we write a single line of code.",
+    "pricing": {
+      "title": "How pricing works",
+      "description": "Every feature is transparent and fixed-price. Pick the tiers that match your build and the total updates instantly—no estimates, no surprises."
+    }
+  },
+  "craft": {
+    "title": "Services",
+    "hero": {
+      "line1": "Full-stack",
+      "line2": "web engineer"
+    },
+    "skills": {
+      "coreStack": {
+        "title": "Core Stack",
+        "items": [
+          "TypeScript-first architecture",
+          "Vite, Astro, Next.js",
+          "React / Vue component systems",
+          "Node, Express, Supabase"
+        ]
+      },
+      "experienceLayer": {
+        "title": "Experience Layer",
+        "items": [
+          "GSAP motion choreography",
+          "Scroll-triggered storytelling",
+          "3D & WebGL moments",
+          "Micro-interactions with intent"
+        ]
+      },
+      "productFeatures": {
+        "title": "Product Features",
+        "items": [
+          "Pricing configurators",
+          "Dynamic content management",
+          "Payment integrations",
+          "User accounts & gating"
+        ]
+      },
+      "deliveryOps": {
+        "title": "Delivery Ops",
+        "items": [
+          "Performance & accessibility budgets",
+          "Automated analytics + events",
+          "Internationalization workflows",
+          "Technical documentation & handoff"
+        ]
+      }
+    },
+    "process": {
+      "title": "How I Work",
+      "description": "Every build starts with clarity: business goals, user journeys, and measurable outcomes. From there I engineer the system—architecture, design language, motion, and integrations—so every detail pushes the project forward and is ready to scale once we launch."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "hero": {
+      "line1": "Let's launch",
+      "line2": "your next build"
+    },
+    "lead": "Share the vision, pick the features, and I'll send a roadmap within 24 hours—timelines, deliverables, and launch support built in.",
+    "directLine": {
+      "title": "Direct Line"
+    },
+    "services": {
+      "title": "Services",
+      "items": [
+        "Custom web applications",
+        "Interactive pricing experiences",
+        "Payment, auth, CMS integrations",
+        "Launch analytics & automation"
+      ],
+      "button": "See full process"
+    },
+    "location": {
+      "title": "Location",
+      "value": "Santo Domingo, Dominican Republic"
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company / Brand (optional)",
+      "companyPlaceholder": "Who are we building for?",
+      "projectDescription": "Project Description",
+      "projectDescriptionPlaceholder": "Tell me about the project, goals, and timeline.",
+      "selectedFeatures": "Selected Features",
+      "selectedFeaturesPlaceholder": "Selections will show here once you configure your build.",
+      "sendMessage": "Send Message"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "hero": {
+      "line1": "Recent work",
+      "line2": "built for traction"
+    },
+    "lead": "Product launches, pricing experiences, and automation stacks delivered from strategy through scale for teams worldwide.",
+    "projects": {
+      "phaseOne": {
+        "title": "Phase 01 · Strategy Blueprint",
+        "description": "Foundational research, positioning, and content architecture built to anchor the rest of the product.",
+        "tags": ["Audience Mapping", "Information Architecture", "Product Brief"]
+      },
+      "phaseTwo": {
+        "title": "Phase 02 · Experience Build",
+        "description": "High-touch interface work with motion, audio, and custom components that translate the blueprint into screens.",
+        "tags": ["GSAP Systems", "Custom Player", "Design-to-Code"]
+      },
+      "phaseThree": {
+        "title": "Phase 03 · Launch & Scale",
+        "description": "Operational tooling, analytics, and automation so the build stays fast post-launch and keeps shipping.",
+        "tags": ["Analytics Layer", "Automation", "CMS Ops"]
+      },
+      "requestPlaybook": "Request Phase Playbook"
+    },
+    "links": {
+      "title": "Live Builds & Dashboards",
+      "description": "Production sites, product dashboards, and marketing experiences currently in the wild.",
+      "visitProject": "Visit project →"
+    },
+    "cta": {
+      "title": "Want a walkthrough?",
+      "description": "Book a strategy call and I'll show you the systems behind these builds—architecture, timelines, and results.",
+      "button": "Talk to JAOCruz →"
+    }
+  },
+  "features": {
+    "landing": {
+      "name": "Landing Page",
+      "description": "Single scrolling page, up to 5 sections"
+    },
+    "animations": {
+      "name": "Advanced Animations",
+      "description": "Custom cursor, scroll effects, GSAP integration",
+      "highlights": [
+        "Scene-based storytelling with GSAP",
+        "Micro-interactions for conversion cues",
+        "Performance budgets baked in"
+      ]
+    },
+    "contactForm": {
+      "name": "Contact Form",
+      "description": "Spam protection, email notifications"
+    },
+    "audioSystems": {
+      "name": "Audio / Media Systems",
+      "description": "Custom audio player with playlists, analytics hooks, and mini-player integration",
+      "highlights": [
+        "Modular player components with playlists",
+        "Mini-player handoff + stateful resume",
+        "Analytics ready (completion, skips, volume)"
+      ]
+    },
+    "multipage": {
+      "name": "Multi-Page Website",
+      "description": "Pick the size of the experience",
+      "options": {
+        "multi-3-5": "3-5 pages",
+        "multi-6-10": "6-10 pages",
+        "multi-11-15": "11-15 pages"
+      }
+    },
+    "ecommerce": {
+      "name": "E-commerce Store",
+      "description": "Choose catalog size",
+      "options": {
+        "commerce-0-50": "Up to 50 products",
+        "commerce-51-200": "51-200 products",
+        "commerce-201-500": "201-500 products"
+      }
+    },
+    "database": {
+      "name": "Backend & Database",
+      "description": "Data model & API complexity",
+      "options": {
+        "db-simple": "Simple (1-2 tables)",
+        "db-medium": "Medium (3-5 tables, basic API)",
+        "db-complex": "Complex (6+ tables, full API)"
+      }
+    },
+    "cms": {
+      "name": "Content Management",
+      "description": "Decide how your team edits content",
+      "options": {
+        "cms-basic": "Basic editor (text/images)",
+        "cms-full": "Full CMS (Strapi/Payload)"
+      }
+    }
+  },
+  "miniPlayer": {
+    "previousTrack": "Previous track",
+    "playOrPause": "Play or pause",
+    "nextTrack": "Next track",
+    "togglePlaylist": "Toggle playlist"
+  }
+}
+

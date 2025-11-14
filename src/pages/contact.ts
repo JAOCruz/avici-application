@@ -1,49 +1,49 @@
 import { contactFormMarkup, bindContactForm } from '../components/ContactForm';
 import { slideUpReveal, wordReveal } from '../utils/textAnimations';
+import { t } from '../utils/i18n';
 
 export default function contact() {
+  const servicesItems = (t('contact.services.items', { returnObjects: true }) as string[]).map(item => `<li>${item}</li>`).join('');
+
   return `
     <div class="contact-page" id="contact">
       <nav class="page-nav">
         <a href="/" class="back-button interactive" data-route="home">
-          <span>←</span> Back
+          <span>←</span> ${t('common.back')}
         </a>
-        <div class="page-title">Contact</div>
+        <div class="page-title">${t('contact.title')}</div>
       </nav>
 
       <main class="contact-content">
         <section class="intro-section">
           <h1 class="page-heading">
-            <span class="line">Let’s launch</span>
-            <span class="line accent">your next build</span>
+            <span class="line">${t('contact.hero.line1')}</span>
+            <span class="line accent">${t('contact.hero.line2')}</span>
           </h1>
           <p class="lead-text">
-            Share the vision, pick the features, and I’ll send a roadmap within 24 hours—timelines, deliverables, and launch support built in.
+            ${t('contact.lead')}
           </p>
         </section>
 
         <section class="contact-columns">
           <div class="contact-info">
             <div class="contact-block">
-              <h2>Direct Line</h2>
+              <h2>${t('contact.directLine.title')}</h2>
               <a href="tel:+18098802016" class="contact-link interactive">809-880-2016</a>
               <a href="mailto:notmeee00@gmail.com" class="contact-link interactive">notmeee00@gmail.com</a>
             </div>
             <div class="contact-block">
-              <h2>Services</h2>
+              <h2>${t('contact.services.title')}</h2>
               <ul>
-                <li>Custom web applications</li>
-                <li>Interactive pricing experiences</li>
-                <li>Payment, auth, CMS integrations</li>
-                <li>Launch analytics & automation</li>
+                ${servicesItems}
               </ul>
               <button class="contact-secondary interactive" type="button" data-route-process>
-                See full process
+                ${t('contact.services.button')}
               </button>
             </div>
             <div class="contact-block">
-              <h2>Location</h2>
-              <p>Santo Domingo, Dominican Republic</p>
+              <h2>${t('contact.location.title')}</h2>
+              <p>${t('contact.location.value')}</p>
             </div>
           </div>
 
@@ -79,5 +79,15 @@ export function init() {
   if ((window as any).cursor) {
     (window as any).cursor.refresh();
   }
+
+  // Listen for language changes
+  window.addEventListener('languageChanged', () => {
+    // Re-render page content by forcing navigation to current route
+    const router = (window as any).router;
+    if (router) {
+      const currentRoute = router.getCurrentRoute();
+      router.navigate(currentRoute, false, true); // force re-render
+    }
+  });
 }
 

@@ -19,6 +19,7 @@ import {
   bindSummary,
 } from '../components/PricingSummary';
 import { decodeText, wordReveal } from '../utils/textAnimations';
+import { t } from '../utils/i18n';
 
 const ensureBaseFeature = (selections: Selection[]) => {
   if (!selections.some((selection) => selection.featureId === 'landing')) {
@@ -63,19 +64,19 @@ export default function configurator() {
     <div class="configurator-page" id="configurator">
       <nav class="page-nav">
         <a href="/" class="back-button interactive" data-route="home">
-          <span>←</span> Back
+          <span>←</span> ${t('common.back')}
         </a>
-        <div class="page-title">Configurator</div>
+        <div class="page-title">${t('configurator.title')}</div>
       </nav>
 
       <main class="configurator-content">
         <section class="configurator-hero">
           <h1 class="page-heading">
-            <span class="line">Build your next</span>
-            <span class="line accent">web experience</span>
+            <span class="line">${t('configurator.hero.line1')}</span>
+            <span class="line accent">${t('configurator.hero.line2')}</span>
           </h1>
           <p class="lead-text">
-            Select the modules you need. Every choice updates the price instantly so you know the scope before we write a single line of code.
+            ${t('configurator.lead')}
           </p>
         </section>
 
@@ -91,9 +92,9 @@ export default function configurator() {
         </section>
 
         <section class="configurator-note">
-          <h2>How pricing works</h2>
+          <h2>${t('configurator.pricing.title')}</h2>
           <p>
-            Every feature is transparent and fixed-price. Pick the tiers that match your build and the total updates instantly—no estimates, no surprises.
+            ${t('configurator.pricing.description')}
           </p>
         </section>
       </main>
@@ -247,5 +248,15 @@ export function init() {
   if ((window as any).cursor) {
     (window as any).cursor.refresh();
   }
+
+  // Listen for language changes
+  window.addEventListener('languageChanged', () => {
+    // Re-render page content by forcing navigation to current route
+    const router = (window as any).router;
+    if (router) {
+      const currentRoute = router.getCurrentRoute();
+      router.navigate(currentRoute, false, true); // force re-render
+    }
+  });
 }
 

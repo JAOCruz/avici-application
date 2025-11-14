@@ -1,21 +1,17 @@
 import { featureSelectionsToSummary, loadSelections } from '../utils/pricing';
+import { t } from '../utils/i18n';
 
 const FORM_ENDPOINT = 'https://submit-form.com/placeholder'; // Replace with real Formspark endpoint
 
 const getStoredSummary = () => {
   if (typeof window === 'undefined') return '';
   try {
-    const stored = sessionStorage.getItem('jaocruz_pricing_summary');
-    if (!stored) {
-      const selections = loadSelections();
-      return featureSelectionsToSummary(selections);
-    }
-    const parsed = JSON.parse(stored) as { summary?: string };
-    return parsed.summary || '';
-  } catch (error) {
-    console.warn('[contact] Unable to read stored summary', error);
+    // Always regenerate from selections to ensure current language is used
     const selections = loadSelections();
     return featureSelectionsToSummary(selections);
+  } catch (error) {
+    console.warn('[contact] Unable to read selections', error);
+    return '';
   }
 };
 
@@ -26,33 +22,33 @@ export const contactFormMarkup = () => {
     <form id="contactForm" class="contact-form" action="${FORM_ENDPOINT}" method="POST">
       <div class="form-grid">
         <label class="form-field">
-          <span>Name</span>
-          <input type="text" name="name" required placeholder="Your name" />
+          <span>${t('contact.form.name')}</span>
+          <input type="text" name="name" required placeholder="${t('contact.form.name')}" />
         </label>
         <label class="form-field">
-          <span>Email</span>
+          <span>${t('contact.form.email')}</span>
           <input type="email" name="email" required placeholder="you@email.com" />
         </label>
       </div>
 
       <label class="form-field">
-        <span>Company / Brand (optional)</span>
-        <input type="text" name="company" placeholder="Who are we building for?" />
+        <span>${t('contact.form.company')}</span>
+        <input type="text" name="company" placeholder="${t('contact.form.companyPlaceholder')}" />
       </label>
 
       <label class="form-field">
-        <span>Project Description</span>
-        <textarea name="projectDescription" rows="5" placeholder="Tell me about the project, goals, and timeline."></textarea>
+        <span>${t('contact.form.projectDescription')}</span>
+        <textarea name="projectDescription" rows="5" placeholder="${t('contact.form.projectDescriptionPlaceholder')}"></textarea>
       </label>
 
       <div class="form-field form-field--readonly">
-        <span>Selected Features</span>
-        <div class="selected-features" data-selected-features>${summary || 'Selections will show here once you configure your build.'}</div>
+        <span>${t('contact.form.selectedFeatures')}</span>
+        <div class="selected-features" data-selected-features>${summary || t('contact.form.selectedFeaturesPlaceholder')}</div>
       </div>
 
       <input type="hidden" name="selectedFeatures" value="${summary.replace(/"/g, '&quot;')}" data-selected-hidden />
 
-      <button type="submit" class="form-submit interactive">Send Message</button>
+      <button type="submit" class="form-submit interactive">${t('contact.form.sendMessage')}</button>
     </form>
   `;
 };
@@ -65,12 +61,17 @@ export const bindContactForm = () => {
 
   const updateSummary = () => {
     const summary = getStoredSummary();
-    selectedDisplay.textContent = summary || 'Selections will show here once you configure your build.';
-    hiddenField.value = summary;
+    selectedDisplay.textContent = summary || t('contact.form.selectedFeaturesPlaceholder');
+    // Escape quotes for HTML attribute
+    hiddenField.value = summary.replace(/"/g, '&quot;');
   };
 
   updateSummary();
 
+  // Update when storage changes (from configurator)
   window.addEventListener('storage', updateSummary);
+  
+  // Update when language changes
+  window.addEventListener('languageChanged', updateSummary);
 };
 

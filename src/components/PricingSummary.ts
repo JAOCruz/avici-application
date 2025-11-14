@@ -8,6 +8,7 @@ import {
   isFixedFeature,
   isOptionFeature,
 } from '../utils/pricing';
+import { t, translateFeature } from '../utils/i18n';
 
 type SummaryCallbacks = {
   onRequestQuote: () => void;
@@ -19,13 +20,13 @@ export const pricingSummaryMarkup = (selections: Selection[]) => {
   return `
     <aside class="summary-card" aria-live="polite">
       <div class="summary-card__header">
-        <span class="summary-card__label">Your Build</span>
+        <span class="summary-card__label">${t('common.yourBuild')}</span>
         <div class="summary-card__total" data-summary-total>${total}</div>
       </div>
       <div class="summary-card__divider"></div>
       <ul class="summary-card__list" data-summary-list></ul>
       <button class="summary-card__cta interactive" type="button" data-summary-cta>
-        Get Quote →
+        ${t('common.getQuote')}
       </button>
     </aside>
   `;
@@ -33,9 +34,11 @@ export const pricingSummaryMarkup = (selections: Selection[]) => {
 
 const summaryItemMarkup = (feature: Feature, selection: Selection) => {
   if (isFixedFeature(feature)) {
+    const translatedNameRaw = translateFeature(feature.id, 'name');
+    const translatedName = (typeof translatedNameRaw === 'string' ? translatedNameRaw : null) || feature.name;
     return `
       <li data-summary-item="${feature.id}">
-        <span>${feature.name}</span>
+        <span>${translatedName}</span>
         <span>${formatCurrency(feature.price)}</span>
       </li>
     `;
@@ -45,9 +48,16 @@ const summaryItemMarkup = (feature: Feature, selection: Selection) => {
       (selection.optionId && getOptionById(feature, selection.optionId)) ||
       (feature.defaultOptionId && getOptionById(feature, feature.defaultOptionId));
     if (!option) return '';
+    const translatedNameRaw = translateFeature(feature.id, 'name');
+    const translatedName = (typeof translatedNameRaw === 'string' ? translatedNameRaw : null) || feature.name;
+    const translatedOptionsRaw = translateFeature(feature.id, 'options');
+    const translatedOptions = (translatedOptionsRaw && typeof translatedOptionsRaw === 'object' && !Array.isArray(translatedOptionsRaw))
+      ? translatedOptionsRaw as Record<string, string>
+      : null;
+    const translatedLabel = translatedOptions?.[option.id] || option.label;
     return `
       <li data-summary-item="${feature.id}">
-        <span>${feature.name} <small>${option.label}</small></span>
+        <span>${translatedName} <small>${translatedLabel}</small></span>
         <span>${formatCurrency(option.price)}</span>
       </li>
     `;
@@ -65,7 +75,7 @@ export const renderSummaryItems = (container: HTMLElement, selections: Selection
     .filter((item) => Boolean(item))
     .join('');
 
-  container.innerHTML = items || `<li class="summary-card__empty">Select add-ons to see pricing</li>`;
+  container.innerHTML = items || `<li class="summary-card__empty">${t('common.selectAddons')}</li>`;
 };
 
 export const animateTotal = (element: HTMLElement, previousTotal: number, nextTotal: number) => {

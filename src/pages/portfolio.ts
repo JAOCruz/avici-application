@@ -1,25 +1,26 @@
 import { fadeInBlur, slideUpReveal } from '../utils/textAnimations';
+import { t } from '../utils/i18n';
 
-const projects = [
+const getProjects = () => [
   {
     id: 'phase-one',
-    title: 'Phase 01 · Strategy Blueprint',
-    description: 'Foundational research, positioning, and content architecture built to anchor the rest of the product.',
-    tags: ['Audience Mapping', 'Information Architecture', 'Product Brief'],
+    title: t('portfolio.projects.phaseOne.title'),
+    description: t('portfolio.projects.phaseOne.description'),
+    tags: t('portfolio.projects.phaseOne.tags', { returnObjects: true }) as string[],
     asset: '/act_1.png',
   },
   {
     id: 'phase-two',
-    title: 'Phase 02 · Experience Build',
-    description: 'High-touch interface work with motion, audio, and custom components that translate the blueprint into screens.',
-    tags: ['GSAP Systems', 'Custom Player', 'Design-to-Code'],
+    title: t('portfolio.projects.phaseTwo.title'),
+    description: t('portfolio.projects.phaseTwo.description'),
+    tags: t('portfolio.projects.phaseTwo.tags', { returnObjects: true }) as string[],
     asset: '/act_2.png',
   },
   {
     id: 'phase-three',
-    title: 'Phase 03 · Launch & Scale',
-    description: 'Operational tooling, analytics, and automation so the build stays fast post-launch and keeps shipping.',
-    tags: ['Analytics Layer', 'Automation', 'CMS Ops'],
+    title: t('portfolio.projects.phaseThree.title'),
+    description: t('portfolio.projects.phaseThree.description'),
+    tags: t('portfolio.projects.phaseThree.tags', { returnObjects: true }) as string[],
     asset: '/act_3.png',
   },
 ];
@@ -48,23 +49,25 @@ const projectLinks = [
 ];
 
 export default function portfolio() {
+  const projects = getProjects();
+
   return `
     <div class="portfolio-page">
       <nav class="page-nav">
         <a href="/" class="back-button interactive" data-route="home">
-          <span>←</span> Back
+          <span>←</span> ${t('common.back')}
         </a>
-        <div class="page-title">Portfolio</div>
+        <div class="page-title">${t('portfolio.title')}</div>
       </nav>
 
       <main class="portfolio-content">
         <section class="intro-section">
           <h1 class="page-heading">
-            <span class="line">Recent work</span>
-            <span class="line accent">built for traction</span>
+            <span class="line">${t('portfolio.hero.line1')}</span>
+            <span class="line accent">${t('portfolio.hero.line2')}</span>
           </h1>
           <p class="lead-text">
-            Product launches, pricing experiences, and automation stacks delivered from strategy through scale for teams worldwide.
+            ${t('portfolio.lead')}
           </p>
         </section>
 
@@ -82,7 +85,7 @@ export default function portfolio() {
                     <ul class="project-tags">
                       ${project.tags.map((tag) => `<li>${tag}</li>`).join('')}
                     </ul>
-                    <button class="project-link interactive" type="button">Request Phase Playbook</button>
+                    <button class="project-link interactive" type="button">${t('portfolio.projects.requestPlaybook')}</button>
                   </div>
                 </article>
               `
@@ -91,8 +94,8 @@ export default function portfolio() {
         </section>
 
         <section class="portfolio-links">
-          <h2>Live Builds & Dashboards</h2>
-          <p>Production sites, product dashboards, and marketing experiences currently in the wild.</p>
+          <h2>${t('portfolio.links.title')}</h2>
+          <p>${t('portfolio.links.description')}</p>
           <div class="portfolio-links-grid">
             ${projectLinks
               .map(
@@ -100,7 +103,7 @@ export default function portfolio() {
                   <a href="${project.url}" class="portfolio-link-card interactive" target="_blank" rel="noopener noreferrer">
                     <div class="portfolio-link-meta">
                       <span class="portfolio-link-title">${project.title}</span>
-                      <span class="portfolio-link-action">Visit project →</span>
+                      <span class="portfolio-link-action">${t('portfolio.links.visitProject')}</span>
                     </div>
                   </a>
                 `
@@ -110,10 +113,10 @@ export default function portfolio() {
         </section>
 
         <section class="portfolio-cta">
-          <h2>Want a walkthrough?</h2>
-          <p>Book a strategy call and I’ll show you the systems behind these builds—architecture, timelines, and results.</p>
+          <h2>${t('portfolio.cta.title')}</h2>
+          <p>${t('portfolio.cta.description')}</p>
           <button class="cta-button interactive" type="button" data-route-contact>
-            Talk to JAOCruz →
+            ${t('portfolio.cta.button')}
           </button>
         </section>
       </main>
@@ -149,5 +152,15 @@ export function init() {
   if ((window as any).cursor) {
     (window as any).cursor.refresh();
   }
+
+  // Listen for language changes
+  window.addEventListener('languageChanged', () => {
+    // Re-render page content by forcing navigation to current route
+    const router = (window as any).router;
+    if (router) {
+      const currentRoute = router.getCurrentRoute();
+      router.navigate(currentRoute, false, true); // force re-render
+    }
+  });
 }
 

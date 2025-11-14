@@ -19,10 +19,10 @@ export class Router {
     });
   }
 
-  public navigate(route: Route, pushState = true) {
+  public navigate(route: Route, pushState = true, force = false) {
     const isInitialLoad = this.app.innerHTML === '';
     
-    if (route === this.currentRoute && !isInitialLoad) return;
+    if (route === this.currentRoute && !isInitialLoad && !force) return;
 
     // Push to history
     if (pushState) {
