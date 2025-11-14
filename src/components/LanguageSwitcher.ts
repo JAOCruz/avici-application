@@ -1,4 +1,4 @@
-import { changeLanguage, getCurrentLanguage, t } from '../utils/i18n';
+import { changeLanguage, getCurrentLanguage } from '../utils/i18n';
 
 export const languageSwitcherMarkup = () => {
   const currentLang = getCurrentLanguage();

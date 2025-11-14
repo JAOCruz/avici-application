@@ -195,7 +195,7 @@ export const updateFeatureSelectionState = (
       checkbox.setAttribute('aria-checked', String(isSelected));
       const label = checkbox.querySelector<HTMLElement>('.checkbox-label');
       if (label && !checkbox.disabled) {
-        label.textContent = isSelected ? t('common.remove') : t('common.addToBuild');
+        label.textContent = isSelected ? t<string>('common.remove') : t<string>('common.addToBuild');
       }
     }
   } else if (isOptionFeature(feature)) {
@@ -208,7 +208,7 @@ export const updateFeatureSelectionState = (
       const icon = toggle.querySelector('.icon');
       if (icon) icon.textContent = isSelected ? '-' : '+';
       const text = toggle.querySelector('span');
-      if (text) text.textContent = isSelected ? t('common.selected') : t('common.chooseOption');
+      if (text) text.textContent = isSelected ? t<string>('common.selected') : t<string>('common.chooseOption');
     }
 
     if (details) {

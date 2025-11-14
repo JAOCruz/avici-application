@@ -61,7 +61,8 @@ export const bindContactForm = () => {
 
   const updateSummary = () => {
     const summary = getStoredSummary();
-    selectedDisplay.textContent = summary || t('contact.form.selectedFeaturesPlaceholder');
+    const placeholder = t<string>('contact.form.selectedFeaturesPlaceholder');
+    selectedDisplay.textContent = summary || placeholder;
     // Escape quotes for HTML attribute
     hiddenField.value = summary.replace(/"/g, '&quot;');
   };

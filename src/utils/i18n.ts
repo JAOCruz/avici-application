@@ -28,7 +28,7 @@ export const initI18n = async () => {
   return i18next;
 };
 
-export const t = (key: string, options?: any) => i18next.t(key, options);
+export const t = <T = string>(key: string, options?: any): T => i18next.t(key, options) as T;
 export const changeLanguage = (lng: string) => i18next.changeLanguage(lng);
 export const getCurrentLanguage = () => i18next.language || 'en';
 
@@ -45,7 +45,8 @@ export const translateFeature = (featureId: string, field: 'name' | 'description
   const translation = i18next.t(key, { returnObjects: true });
   
   // Check if translation exists (not the same as the key)
-  const isTranslated = translation !== key && translation !== `features.${camelCaseId}.${field}`;
+  // Type-safe comparison: check if translation is a string and different from the key
+  const isTranslated = typeof translation === 'string' && translation !== key && translation !== `features.${camelCaseId}.${field}`;
   
   // If translation returns an object/array, return it
   if (typeof translation === 'object' && translation !== null && !Array.isArray(translation)) {

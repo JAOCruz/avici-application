@@ -273,10 +273,10 @@ import { languageSwitcherMarkup, bindLanguageSwitcher } from './components/Langu
     const nextBtn = miniPlayer.querySelector<HTMLButtonElement>('[data-mini-next]');
     const playlistBtn = miniPlayer.querySelector<HTMLButtonElement>('[data-mini-playlist-toggle]');
     
-    if (prevBtn) prevBtn.setAttribute('aria-label', t('miniPlayer.previousTrack'));
-    if (toggleBtn) toggleBtn.setAttribute('aria-label', t('miniPlayer.playOrPause'));
-    if (nextBtn) nextBtn.setAttribute('aria-label', t('miniPlayer.nextTrack'));
-    if (playlistBtn) playlistBtn.setAttribute('aria-label', t('miniPlayer.togglePlaylist'));
+    if (prevBtn) prevBtn.setAttribute('aria-label', t<string>('miniPlayer.previousTrack'));
+    if (toggleBtn) toggleBtn.setAttribute('aria-label', t<string>('miniPlayer.playOrPause'));
+    if (nextBtn) nextBtn.setAttribute('aria-label', t<string>('miniPlayer.nextTrack'));
+    if (playlistBtn) playlistBtn.setAttribute('aria-label', t<string>('miniPlayer.togglePlaylist'));
   });
 })();
 
