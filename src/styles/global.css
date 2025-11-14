@@ -1,5 +1,5 @@
 :root {
-  /* Colors - Avici Black & White Theme */
+/* Colors - JAOCruz Black & White Theme */
   --color-bg: #000000;
   --color-text: #ffffff;
   --color-accent: #ffffff;
@@ -133,20 +133,60 @@ button {
   position: fixed;
   bottom: var(--spacing-md);
   right: var(--spacing-md);
-  background: rgba(0, 0, 0, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: 4px;
+  border-radius: 6px;
   z-index: 1000;
   display: none;
-  min-width: 250px;
+  width: 320px;
+  flex-direction: column;
+  gap: var(--spacing-sm);
   backdrop-filter: blur(10px);
 }
 
 .mini-player.active {
   display: flex;
+}
+
+.mini-player-main {
+  display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+}
+
+.mini-player-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.mini-player-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  background: transparent;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.mini-player-btn:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mini-player-btn--ghost {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mini-player-btn--ghost:hover {
+  border-color: #ffffff;
 }
 
 .mini-player-info {
@@ -165,40 +205,98 @@ button {
   font-family: 'Courier New', monospace;
 }
 
-.mini-player-btn {
-  width: 32px;
-  height: 32px;
-  border: 1px solid #ffffff;
-  border-radius: 50%;
-  background: transparent;
-  color: #ffffff;
+.mini-player-bottom {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.mini-player-btn:hover {
-  background: #ffffff;
-  color: #000000;
+  gap: var(--spacing-sm);
 }
 
 .mini-player-progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.2);
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  touch-action: none;
 }
 
 .mini-player-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
   background: #ffffff;
   width: 0%;
   transition: width 0.1s linear;
+}
+
+.mini-player-volume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+}
+
+.mini-player-volume input[type='range'] {
+  width: 110px;
+  accent-color: #ffffff;
+}
+
+.mini-player-playlist {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: var(--spacing-sm);
+  max-height: 160px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mini-player-playlist[hidden] {
+  display: none;
+}
+
+.mini-player-playlist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.mini-player-playlist li button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: inherit;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  padding: 0.35rem 0.25rem;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.mini-player-playlist li button:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.mini-player-playlist li.active button {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mini-playlist-title {
+  font-weight: 600;
+}
+
+.mini-playlist-subtitle {
+  opacity: 0.6;
+  font-size: 0.7rem;
 }
 
 

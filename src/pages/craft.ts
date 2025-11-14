@@ -7,55 +7,55 @@ export default function craft() {
         <a href="/" class="back-button interactive" data-route="home">
           <span>←</span> Back
         </a>
-        <div class="page-title">The Craft</div>
+        <div class="page-title">Services</div>
       </nav>
 
       <main class="craft-content">
         <section class="intro-section">
           <h1 class="page-heading">
             <span class="line">Full-stack</span>
-            <span class="line accent">creative</span>
+            <span class="line accent">web engineer</span>
           </h1>
         </section>
 
         <section class="skills-grid">
           <div class="skill-category">
-            <h3 class="category-title">Visual Design</h3>
+            <h3 class="category-title">Core Stack</h3>
             <ul class="skill-list">
-              <li>Adobe Illustrator</li>
-              <li>Photoshop</li>
-              <li>Brand Identity</li>
-              <li>UI/UX Design</li>
+              <li>TypeScript-first architecture</li>
+              <li>Vite, Astro, Next.js</li>
+              <li>React / Vue component systems</li>
+              <li>Node, Express, Supabase</li>
             </ul>
           </div>
 
           <div class="skill-category">
-            <h3 class="category-title">Motion & Video</h3>
+            <h3 class="category-title">Experience Layer</h3>
             <ul class="skill-list">
-              <li>Premiere Pro</li>
-              <li>After Effects</li>
-              <li>Motion Graphics</li>
-              <li>Video Editing</li>
+              <li>GSAP motion choreography</li>
+              <li>Scroll-triggered storytelling</li>
+              <li>3D & WebGL moments</li>
+              <li>Micro-interactions with intent</li>
             </ul>
           </div>
 
           <div class="skill-category">
-            <h3 class="category-title">Sound Design</h3>
+            <h3 class="category-title">Product Features</h3>
             <ul class="skill-list">
-              <li>Ableton Live</li>
-              <li>Music Production</li>
-              <li>Sound for Web</li>
-              <li>Spatial Audio</li>
+              <li>Pricing configurators</li>
+              <li>Dynamic content management</li>
+              <li>Payment integrations</li>
+              <li>User accounts & gating</li>
             </ul>
           </div>
 
           <div class="skill-category">
-            <h3 class="category-title">Development</h3>
+            <h3 class="category-title">Delivery Ops</h3>
             <ul class="skill-list">
-              <li>TypeScript / JavaScript</li>
-              <li>React / Vue</li>
-              <li>GSAP / Three.js</li>
-              <li>Interactive Experiences</li>
+              <li>Performance & accessibility budgets</li>
+              <li>Automated analytics + events</li>
+              <li>Internationalization workflows</li>
+              <li>Technical documentation & handoff</li>
             </ul>
           </div>
         </section>
@@ -63,9 +63,9 @@ export default function craft() {
         <section class="process-section">
           <h2>How I Work</h2>
           <p class="process-text">
-            I start with the concept—what's the core idea? Then I build everything 
-            around that thread: the visual language, the interactions, the sound, 
-            the code. Every element serves the vision.
+            Every build starts with clarity: business goals, user journeys, and measurable outcomes. 
+            From there I engineer the system—architecture, design language, motion, and integrations—so every detail 
+            pushes the project forward and is ready to scale once we launch.
           </p>
         </section>
       </main>

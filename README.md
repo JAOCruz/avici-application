@@ -1,13 +1,13 @@
-# Avici Application Portfolio
+# JAOCruz Web Pricing Configurator
 
-A custom interactive landing page built specifically for the Avici.money job application. This showcases a creative technologist's approach to building cohesive digital experiences.
+An interactive experience for Juan Aulio Ortiz de la Cruz (JAOCruz)—a creative technologist and full-stack web engineer based in the Dominican Republic. The site highlights service capabilities, transparent pricing, and contact pathways for custom website builds.
 
 ## 🎯 Concept
 
-Three distinct paths from the homepage, each with unique typography and interaction styles:
-1. **The Vision** - Creative work & portfolio
-2. **The Craft** - Technical capabilities
-3. **The Fit** - Why Avici + Jay makes sense
+Three core entry points guide visitors through the offering:
+1. **Configurator** – Interactive pricing journey and service overview  
+2. **Services** – Technical stack, motion systems, and delivery ops  
+3. **Process** – How partnerships work, timelines, and direct contact details
 
 ## 🚀 Quick Start
 
@@ -37,21 +37,22 @@ src/
 ```
 
 ## ✨ Features
-
-- **Custom Cursor** - Smooth, interactive cursor with hover effects
-- **Page Transitions** - GSAP-powered smooth page transitions
-- **Responsive Design** - Mobile-friendly layout
-- **TypeScript** - Type-safe code
-- **Modern Stack** - Vite + GSAP + Vanilla TS
+- **Interactive Pricing Story** – Three-act walkthrough of strategy, experience, and launch  
+- **Custom Cursor** – Zero-lag white cursor with adaptive hover states  
+- **GSAP Motion** – Decode animations, scroll reveals, and micro-interactions  
+- **Responsive Layout** – Optimized for desktop, tablet, and mobile  
+- **TypeScript-first** – Strict typing across pages, utils, and animations  
+- **Modern Stack** – Vite + GSAP + Vanilla TypeScript
 
 ## 🎨 Customization
 
 ### Update Content
 
-1. **Personal Info** - Edit `src/pages/fit.ts` for application answers
-2. **Projects** - Edit `src/pages/vision.ts` to add portfolio items
-3. **Skills** - Edit `src/pages/craft.ts` to update capabilities
-4. **Contact** - Update email/links in `src/pages/fit.ts`
+1. **Hero & Navigation** – Update `src/pages/home.ts`
+2. **Configurator Story** – Edit `src/pages/vision.ts`
+3. **Services & Stack** – Adjust `src/pages/craft.ts`
+4. **Process & Contact** – Update `src/pages/fit.ts`
+5. **Global Styles** – Modify tokens in `src/styles/global.css`
 
 ### Styling
 
@@ -64,27 +65,22 @@ src/
 - **Vite** - Lightning-fast build tool
 - **TypeScript** - Type safety
 - **GSAP** - Professional-grade animations
-- **Locomotive Scroll** - Smooth scrolling (optional)
 - **CSS Custom Properties** - Maintainable theming
 
 ## 📝 Next Steps
 
-1. Add real portfolio images to `/public` folder
-2. Link actual project URLs in vision page
-3. Add your real email/contact info
-4. Consider adding:
-   - Real portfolio images
-   - Video embeds for projects
-   - SoundCloud/audio players for music
-   - Case study pages
-   - About section with photos
+1. Wire the interactive pricing state machine in `src/utils/pricing.ts`
+2. Connect the configurator selections to a contact form (Formspark)
+3. Add real project imagery and deploy-ready assets
+4. Enhance summary card with live totals and animated counters
+5. Implement authentication/payment add-ons as needed
 
 ## 🎭 Typography Personality
 
 - **Home** - Bold, sans-serif, modern
-- **Vision** - Display serif accents, elegant
-- **Craft** - Monospace code hints, technical
-- **Fit** - Clean, professional, confident
+- **Configurator** - Display serif accents, confident
+- **Services** - Monospace hints, technical
+- **Process** - Clean, professional, approachable
 
 ## 🌐 Deployment
 
@@ -102,9 +98,8 @@ npm run build
 
 ## 💡 Philosophy
 
-This landing page demonstrates the exact capability being proposed: creating cohesive, interactive brand experiences where design, code, and storytelling converge into one unified vision.
+The experience mirrors JAOCruz's approach to client work: purposeful strategy, expressive motion, and transparent pricing backed by a robust engineering stack.
 
 ---
 
-Built with ❤️ for Avici.money
-# avici-application
+Built with precision for JAOCruz.com

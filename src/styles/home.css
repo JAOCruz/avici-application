@@ -69,10 +69,11 @@
 /* Navigation */
 .home-nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  grid-auto-rows: 1fr;
   gap: var(--spacing-md);
   width: 100%;
-  max-width: 1200px;
+  max-width: 960px;
   margin-top: var(--spacing-lg);
 }
 
@@ -83,6 +84,9 @@
   position: relative;
   overflow: hidden;
   background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .nav-item::before {
@@ -140,6 +144,7 @@
 @media (max-width: 768px) {
   .home-nav {
     grid-template-columns: 1fr;
+    max-width: 520px;
   }
 
   .hero-title {

@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 
-export type Route = 'home' | 'vision' | 'craft' | 'fit';
+export type Route = 'home' | 'configurator' | 'craft' | 'fit' | 'portfolio' | 'contact';
 
 export class Router {
   private currentRoute: Route = 'home';

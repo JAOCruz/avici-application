@@ -43,9 +43,9 @@ export class CustomCursor {
   private watchPageChanges() {
     // Check current page and update cursor
     const updateCursorColor = () => {
-      const isVisionPage = document.querySelector('.vision-page') !== null;
-      
-      if (isVisionPage) {
+      const isLightBackgroundPage = document.querySelector('.configurator-page') !== null;
+
+      if (isLightBackgroundPage) {
         this.cursor.classList.add('dark-cursor');
       } else {
         this.cursor.classList.remove('dark-cursor');

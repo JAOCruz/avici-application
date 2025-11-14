@@ -5,42 +5,48 @@ export default function home() {
   return `
     <div class="home-page">
       <header class="home-header">
-        <div class="logo">JAY</div>
-        <div class="tagline">CREATIVE TECHNOLOGIST</div>
+        <div class="logo">JAOCruz</div>
+        <div class="tagline">CREATIVE TECHNOLOGIST · DOMINICAN REPUBLIC</div>
       </header>
 
       <main class="home-main">
         <div class="hero-text">
           <h1 class="hero-title">
-            <span class="line">Building</span>
-            <span class="line">experiences that</span>
-            <span class="line accent">make sense</span>
+            <span class="line">Websites built</span>
+            <span class="line">for global brands</span>
+            <span class="line accent">with momentum</span>
           </h1>
         </div>
 
         <nav class="home-nav">
-          <a href="/vision" class="nav-item interactive" data-route="vision">
+          <a href="/configurator" class="nav-item interactive" data-route="configurator">
             <span class="nav-number">01</span>
-            <h2 class="nav-title">The Vision</h2>
-            <p class="nav-description">Creative work & portfolio</p>
+            <h2 class="nav-title">Configurator</h2>
+            <p class="nav-description">Interactive pricing for custom builds</p>
           </a>
 
           <a href="/craft" class="nav-item interactive" data-route="craft">
             <span class="nav-number">02</span>
-            <h2 class="nav-title">The Craft</h2>
-            <p class="nav-description">Technical capabilities</p>
+            <h2 class="nav-title">Services</h2>
+            <p class="nav-description">Stack, product features, and delivery ops</p>
           </a>
 
-          <a href="/fit" class="nav-item interactive" data-route="fit">
+          <a href="/portfolio" class="nav-item interactive" data-route="portfolio">
             <span class="nav-number">03</span>
-            <h2 class="nav-title">The Fit</h2>
-            <p class="nav-description">Why Avici + Jay</p>
+            <h2 class="nav-title">Portfolio</h2>
+            <p class="nav-description">Recent launches and case studies</p>
+          </a>
+
+          <a href="/contact" class="nav-item interactive" data-route="contact">
+            <span class="nav-number">04</span>
+            <h2 class="nav-title">Contact</h2>
+            <p class="nav-description">Start a project or request a walkthrough</p>
           </a>
         </nav>
       </main>
 
       <footer class="home-footer">
-        <p>Application for Avici.money — Nov 2025</p>
+        <p>Juan Aulio Ortiz de la Cruz · Worldwide · notmeee00@gmail.com</p>
       </footer>
     </div>
   `;

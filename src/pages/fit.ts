@@ -8,64 +8,63 @@ export default function fit() {
         <a href="/" class="back-button interactive" data-route="home">
           <span>←</span> Back
         </a>
-        <div class="page-title">The Fit</div>
+        <div class="page-title">Process</div>
       </nav>
 
       <main class="fit-content">
         <section class="intro-section">
           <h1 class="page-heading">
             <span class="line">Why</span>
-            <span class="line accent">Avici + Jay</span>
+            <span class="line accent">JAOCruz</span>
           </h1>
         </section>
 
         <section class="application-answers">
           <div class="answer-block">
             <div class="answer-number">01</div>
-            <h3 class="answer-question">How can you help Avici?</h3>
+            <h3 class="answer-question">What problem do you solve?</h3>
             <p class="answer-text">
-              I'm a creative technologist who brings ideas to life through design, 
-              code, and sound. I work across Adobe Creative Suite, Ableton, and 
-              front-end development to build cohesive digital experiences where 
-              every element serves the vision.
+              I help Dominican brands launch premium websites that feel bespoke and convert. 
+              From TypeScript architecture to GSAP motion and payment flows, I design and build 
+              the entire experience so everything tells one confident story.
             </p>
           </div>
 
           <div class="answer-block">
             <div class="answer-number">02</div>
-            <h3 class="answer-question">Why are you the right person to help?</h3>
+            <h3 class="answer-question">What makes your builds different?</h3>
             <p class="answer-text">
-              I think in systems—every project I touch becomes a unified experience. 
-              When I rebranded Apollo Finance, I didn't just design a logo. I created 
-              an astronaut identity that connected to the name, built an immersive 
-              website, and composed a soundtrack sampling actual Apollo missions. 
-              Everything pointed to one idea: exploration.
+              Clarity and transparency. We scope features together using the interactive pricing configurator, 
+              then I deliver modular systems: performant, accessible, and easy to evolve. Animations, CMS, payments, 
+              automations—everything is engineered to ship fast and scale with your team.
             </p>
             <p class="answer-text">
-              That's how I approach creative work—finding the thread that ties it all together.
+              It's not just code. It's strategy, storytelling, and ongoing optimization packaged in one build partner.
             </p>
           </div>
 
           <div class="answer-block">
             <div class="answer-number">03</div>
-            <h3 class="answer-question">Why do you want to help Avici?</h3>
+            <h3 class="answer-question">How do we get started?</h3>
             <p class="answer-text">
-              Avici sits at the intersection of crypto and everyday spending—it's 
-              solving a real friction point. I want to help shape how that story 
-              gets told visually and experientially as you grow. The product is smart; 
-              the creative should match that intelligence.
+              Start with the configurator—choose the feature set that fits your roadmap, then send the quote. 
+              I reply within 24 hours to book a discovery call. Launch timelines typically run 2–4 weeks once 
+              we sign off on scope.
             </p>
           </div>
         </section>
 
         <section class="cta-section">
-          <h2 class="cta-heading">Let's build something remarkable</h2>
+          <h2 class="cta-heading">Let's build your next product</h2>
           <div class="contact-links">
-            <a href="mailto:your@email.com" class="contact-link interactive">
+            <a href="mailto:notmeee00@gmail.com" class="contact-link interactive">
               Email Me
             </a>
-            <a href="#" class="contact-link interactive">
-              View Full Portfolio
+            <a href="tel:+18098802016" class="contact-link interactive">
+              Call 809-880-2016
+            </a>
+            <a href="#configurator" class="contact-link interactive">
+              Open Configurator
             </a>
           </div>
         </section>
