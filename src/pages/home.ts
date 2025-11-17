@@ -20,12 +20,6 @@ export default function home() {
         </div>
 
         <nav class="home-nav">
-          <a href="/configurator" class="nav-item interactive" data-route="configurator">
-            <span class="nav-number">${t('home.nav.configurator.number')}</span>
-            <h2 class="nav-title">${t('home.nav.configurator.title')}</h2>
-            <p class="nav-description">${t('home.nav.configurator.description')}</p>
-          </a>
-
           <a href="/craft" class="nav-item interactive" data-route="craft">
             <span class="nav-number">${t('home.nav.services.number')}</span>
             <h2 class="nav-title">${t('home.nav.services.title')}</h2>

@@ -131,7 +131,7 @@ button {
 /* Persistent Mini Audio Player */
 .mini-player {
   position: fixed;
-  bottom: var(--spacing-md);
+  bottom: calc(var(--spacing-md) + 50px);
   right: var(--spacing-md);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -187,6 +187,22 @@ button {
 
 .mini-player-btn--ghost:hover {
   border-color: #ffffff;
+}
+
+.mini-player-btn--close {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.mini-player-btn--close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mini-player-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 
 .mini-player-info {

@@ -44,7 +44,7 @@ export const FEATURES: Feature[] = [
     kind: 'fixed',
     id: 'landing',
     name: 'Landing Page',
-    price: 1500,
+    price: Math.round(1500 * 0.8), // 20% reduction
     description: 'Single scrolling page, up to 5 sections',
     required: true,
   },
@@ -52,7 +52,7 @@ export const FEATURES: Feature[] = [
     kind: 'fixed',
     id: 'animations',
     name: 'Advanced Animations',
-    price: 400,
+    price: Math.round(400 * 0.8), // 20% reduction
     description: 'Custom cursor, scroll effects, GSAP integration',
     highlights: [
       'Scene-based storytelling with GSAP',
@@ -64,14 +64,14 @@ export const FEATURES: Feature[] = [
     kind: 'fixed',
     id: 'contact-form',
     name: 'Contact Form',
-    price: 150,
+    price: Math.round(150 * 0.8), // 20% reduction
     description: 'Spam protection, email notifications',
   },
   {
     kind: 'fixed',
     id: 'audio-systems',
     name: 'Audio / Media Systems',
-    price: 450,
+    price: Math.round(450 * 0.8), // 20% reduction
     description: 'Custom audio player with playlists, analytics hooks, and mini-player integration',
     highlights: [
       'Modular player components with playlists',
@@ -86,9 +86,9 @@ export const FEATURES: Feature[] = [
     name: 'Multi-Page Website',
     description: 'Pick the size of the experience',
     options: [
-      { id: 'multi-3-5', label: '3-5 pages', price: 2000 },
-      { id: 'multi-6-10', label: '6-10 pages', price: 3500 },
-      { id: 'multi-11-15', label: '11-15 pages', price: 5000 },
+      { id: 'multi-3-5', label: '3-5 pages', price: Math.round(2000 * 0.8) }, // 20% reduction
+      { id: 'multi-6-10', label: '6-10 pages', price: Math.round(3500 * 0.8) }, // 20% reduction
+      { id: 'multi-11-15', label: '11-15 pages', price: Math.round(5000 * 0.8) }, // 20% reduction
     ],
     defaultOptionId: 'multi-3-5',
   },
@@ -98,9 +98,9 @@ export const FEATURES: Feature[] = [
     name: 'E-commerce Store',
     description: 'Choose catalog size',
     options: [
-      { id: 'commerce-0-50', label: 'Up to 50 products', price: 3000 },
-      { id: 'commerce-51-200', label: '51-200 products', price: 5000 },
-      { id: 'commerce-201-500', label: '201-500 products', price: 8000 },
+      { id: 'commerce-0-50', label: 'Up to 50 products', price: Math.round(3000 * 0.8) }, // 20% reduction
+      { id: 'commerce-51-200', label: '51-200 products', price: Math.round(5000 * 0.8) }, // 20% reduction
+      { id: 'commerce-201-500', label: '201-500 products', price: Math.round(8000 * 0.8) }, // 20% reduction
     ],
     defaultOptionId: 'commerce-0-50',
   },
@@ -110,9 +110,9 @@ export const FEATURES: Feature[] = [
     name: 'Backend & Database',
     description: 'Data model & API complexity',
     options: [
-      { id: 'db-simple', label: 'Simple (1-2 tables)', price: 2000 },
-      { id: 'db-medium', label: 'Medium (3-5 tables, basic API)', price: 3500 },
-      { id: 'db-complex', label: 'Complex (6+ tables, full API)', price: 6000 },
+      { id: 'db-simple', label: 'Simple (1-2 tables)', price: Math.round(2000 * 0.8) }, // 20% reduction
+      { id: 'db-medium', label: 'Medium (3-5 tables, basic API)', price: Math.round(3500 * 0.8) }, // 20% reduction
+      { id: 'db-complex', label: 'Complex (6+ tables, full API)', price: Math.round(6000 * 0.8) }, // 20% reduction
     ],
     defaultOptionId: 'db-simple',
   },
@@ -122,8 +122,8 @@ export const FEATURES: Feature[] = [
     name: 'Content Management',
     description: 'Decide how your team edits content',
     options: [
-      { id: 'cms-basic', label: 'Basic editor (text/images)', price: 800 },
-      { id: 'cms-full', label: 'Full CMS (Strapi/Payload)', price: 2000 },
+      { id: 'cms-basic', label: 'Basic editor (text/images)', price: Math.round(800 * 0.8) }, // 20% reduction
+      { id: 'cms-full', label: 'Full CMS (Strapi/Payload)', price: Math.round(2000 * 0.8) }, // 20% reduction
     ],
     defaultOptionId: 'cms-basic',
   },

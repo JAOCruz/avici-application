@@ -22,23 +22,19 @@
       "line3": "with momentum"
     },
     "nav": {
-      "configurator": {
+      
+    "services": {
         "number": "01",
-        "title": "Configurator",
-        "description": "Interactive pricing for custom builds"
-      },
-      "services": {
-        "number": "02",
         "title": "Services",
         "description": "Stack, product features, and delivery ops"
       },
       "portfolio": {
-        "number": "03",
+        "number": "02",
         "title": "Portfolio",
         "description": "Recent launches and case studies"
       },
       "contact": {
-        "number": "04",
+        "number": "03",
         "title": "Contact",
         "description": "Start a project or request a walkthrough"
       }

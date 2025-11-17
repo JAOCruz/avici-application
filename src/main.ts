@@ -32,17 +32,20 @@ import { languageSwitcherMarkup, bindLanguageSwitcher } from './components/Langu
   miniPlayer.innerHTML = `
     <div class="mini-player-main">
       <div class="mini-player-controls">
-        <button class="mini-player-btn" type="button" data-mini-prev aria-label="${t('miniPlayer.previousTrack')}">⏮</button>
-        <button class="mini-player-btn" type="button" data-mini-toggle aria-label="${t('miniPlayer.playOrPause')}">
+        <button class="mini-player-btn" type="button" data-mini-prev aria-label="${t<string>('miniPlayer.previousTrack')}">⏮</button>
+        <button class="mini-player-btn" type="button" data-mini-toggle aria-label="${t<string>('miniPlayer.playOrPause')}">
           <span>⏸</span>
         </button>
-        <button class="mini-player-btn" type="button" data-mini-next aria-label="${t('miniPlayer.nextTrack')}">⏭</button>
+        <button class="mini-player-btn" type="button" data-mini-next aria-label="${t<string>('miniPlayer.nextTrack')}">⏭</button>
       </div>
       <div class="mini-player-info">
         <div class="mini-player-track" id="miniTrackName">Apollo Act I</div>
         <div class="mini-player-time" id="miniTime">0:00 / 0:00</div>
       </div>
-      <button class="mini-player-btn mini-player-btn--ghost" type="button" data-mini-playlist-toggle aria-label="${t('miniPlayer.togglePlaylist')}">☰</button>
+      <div class="mini-player-actions">
+        <button class="mini-player-btn mini-player-btn--ghost" type="button" data-mini-playlist-toggle aria-label="${t<string>('miniPlayer.togglePlaylist')}">☰</button>
+        <button class="mini-player-btn mini-player-btn--close" type="button" data-mini-close aria-label="Close player">×</button>
+      </div>
     </div>
     <div class="mini-player-bottom">
       <div class="mini-player-progress">
@@ -67,6 +70,7 @@ import { languageSwitcherMarkup, bindLanguageSwitcher } from './components/Langu
   const miniNextBtn = miniPlayer.querySelector<HTMLButtonElement>('[data-mini-next]');
   const miniVolumeSlider = miniPlayer.querySelector<HTMLInputElement>('[data-mini-volume]');
   const miniPlaylistToggle = miniPlayer.querySelector<HTMLButtonElement>('[data-mini-playlist-toggle]');
+  const miniCloseBtn = miniPlayer.querySelector<HTMLButtonElement>('[data-mini-close]');
   const miniPlaylist = miniPlayer.querySelector<HTMLElement>('[data-mini-playlist]');
   const miniPlaylistItems = miniPlayer.querySelector<HTMLUListElement>('[data-mini-playlist-items]');
   const miniTrackName = document.getElementById('miniTrackName');
@@ -230,6 +234,14 @@ import { languageSwitcherMarkup, bindLanguageSwitcher } from './components/Langu
     } else {
       miniPlaylist.setAttribute('hidden', 'true');
     }
+  });
+
+  miniCloseBtn?.addEventListener('click', () => {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+    (window as any).miniPlayer.hide();
   });
 
   const scrubMiniPlayer = (clientX: number) => {
