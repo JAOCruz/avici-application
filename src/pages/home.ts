@@ -20,23 +20,60 @@ export default function home() {
         </div>
 
         <nav class="home-nav">
-          <a href="/craft" class="nav-item interactive" data-route="craft">
-            <span class="nav-number">${t('home.nav.services.number')}</span>
-            <h2 class="nav-title">${t('home.nav.services.title')}</h2>
-            <p class="nav-description">${t('home.nav.services.description')}</p>
+          <a href="/craft" class="nav-item nav-item-video interactive" data-route="craft">
+            <video 
+              class="nav-video" 
+              loop 
+              muted 
+              playsinline
+              disablePictureInPicture
+              preload="auto"
+            >
+              <source src="/services1.webm" type="video/webm">
+            </video>
+            <div class="video-overlay">
+              <span class="nav-number">${t('home.nav.services.number')}</span>
+              <h2 class="nav-title">${t('home.nav.services.title')}</h2>
+              <p class="nav-description">${t('home.nav.services.description')}</p>
+            </div>
           </a>
 
-          <a href="/portfolio" class="nav-item interactive" data-route="portfolio">
-            <span class="nav-number">${t('home.nav.portfolio.number')}</span>
-            <h2 class="nav-title">${t('home.nav.portfolio.title')}</h2>
-            <p class="nav-description">${t('home.nav.portfolio.description')}</p>
+          <a href="/portfolio" class="nav-item nav-item-video interactive" data-route="portfolio">
+            <video 
+              class="nav-video" 
+              loop 
+              muted 
+              playsinline
+              disablePictureInPicture
+              preload="auto"
+            >
+              <source src="/aesthetic1.webm" type="video/webm">
+            </video>
+            <div class="video-overlay">
+              <span class="nav-number">${t('home.nav.portfolio.number')}</span>
+              <h2 class="nav-title">${t('home.nav.portfolio.title')}</h2>
+              <p class="nav-description">${t('home.nav.portfolio.description')}</p>
+            </div>
           </a>
 
-          <a href="/contact" class="nav-item interactive" data-route="contact">
-            <span class="nav-number">${t('home.nav.contact.number')}</span>
-            <h2 class="nav-title">${t('home.nav.contact.title')}</h2>
-            <p class="nav-description">${t('home.nav.contact.description')}</p>
+          <a href="/contact" class="nav-item nav-item-video interactive" data-route="contact">
+            <video 
+              class="nav-video" 
+              loop 
+              muted 
+              playsinline
+              disablePictureInPicture
+              preload="auto"
+            >
+              <source src="/telephone1.webm" type="video/webm">
+            </video>
+            <div class="video-overlay">
+              <span class="nav-number">${t('home.nav.contact.number')}</span>
+              <h2 class="nav-title">${t('home.nav.contact.title')}</h2>
+              <p class="nav-description">${t('home.nav.contact.description')}</p>
+            </div>
           </a>
+
         </nav>
       </main>
 
@@ -62,7 +99,8 @@ export function init() {
   });
 
   // Setup navigation
-  navItems.forEach((item) => {
+  const linkItems = document.querySelectorAll('.nav-item[data-route]');
+  linkItems.forEach((item) => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
       const route = (item as HTMLElement).dataset.route as any;
@@ -70,34 +108,77 @@ export function init() {
     });
   });
 
-  // Hover effects on nav items
-  navItems.forEach((item) => {
+  // Video hover play/pause - for first 3 boxes
+  const hoverVideos = document.querySelectorAll('.nav-item-video:not(.nav-item-autoplay)');
+  hoverVideos.forEach((item) => {
+    const video = item.querySelector('.nav-video') as HTMLVideoElement;
     const title = item.querySelector('.nav-title');
+    
+    if (!video) return;
 
     item.addEventListener('mouseenter', () => {
-      gsap.to(title, {
-        x: 20,
-        duration: 0.3,
-        ease: 'power2.out',
-      });
+      video.play();
+      
+      if (title) {
+        gsap.to(title, {
+          x: 20,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      }
     });
 
     item.addEventListener('mouseleave', () => {
-      gsap.to(title, {
-        x: 0,
-        duration: 0.3,
-        ease: 'power2.out',
-      });
+      video.pause();
+      video.currentTime = 0;
+      
+      if (title) {
+        gsap.to(title, {
+          x: 0,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      }
     });
   });
 
+  // 4th box - always playing with hover effect
+  const autoplayItem = document.querySelector('.nav-item-autoplay');
+  if (autoplayItem) {
+    const video = autoplayItem.querySelector('.nav-video') as HTMLVideoElement;
+    const title = autoplayItem.querySelector('.nav-title');
+    
+    if (video) {
+      video.play().catch(() => {
+        // Autoplay was prevented
+      });
+    }
+
+    if (title) {
+      autoplayItem.addEventListener('mouseenter', () => {
+        gsap.to(title, {
+          x: 20,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      });
+
+      autoplayItem.addEventListener('mouseleave', () => {
+        gsap.to(title, {
+          x: 0,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      });
+    }
+  }
+
   // Listen for language changes
   window.addEventListener('languageChanged', () => {
-    // Re-render page content by forcing navigation to current route
     const router = (window as any).router;
     if (router) {
       const currentRoute = router.getCurrentRoute();
-      router.navigate(currentRoute, false, true); // force re-render
+      router.navigate(currentRoute, false, true);
     }
   });
 }
