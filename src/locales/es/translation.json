@@ -14,31 +14,43 @@
     "total": "Total"
   },
   "home": {
-    "logo": "JAOCruz",
-    "tagline": "TECNÓLOGO CREATIVO · REPÚBLICA DOMINICANA",
+    "logo": "JAOCRUZ",
+    "tagline": "CONSULTORÍA ESPECIALIZADA",
     "hero": {
-      "line1": "Sitios web construidos",
-      "line2": "para marcas globales",
-      "line3": "con impulso"
+      "line1": "Ingeniería de",
+      "line2": "Crecimiento y Lógica",
+      "subtext": "Arquitecto de experiencias digitales de alto rendimiento y sistemas empresariales Odoo robustos. Uniendo la brecha entre el impulso creativo y las operaciones comerciales."
     },
     "nav": {
-      "services": {
-        "number": "01",
-        "title": "Servicios",
-        "description": "Stack, características del producto y operaciones de entrega"
+      "digital": {
+        "title": "Digital",
+        "description": "Marketing de alto rendimiento y Web 3D"
       },
-      "portfolio": {
-        "number": "02",
-        "title": "Portafolio",
-        "description": "Lanzamientos recientes y casos de estudio"
+      "systems": {
+        "title": "Sistemas",
+        "description": "ERP empresarial y operaciones Odoo"
       },
       "contact": {
-        "number": "03",
         "title": "Contacto",
         "description": "Inicia un proyecto o solicita un recorrido"
       }
     },
-    "footer": "Juan Aulio Ortiz de la Cruz · Mundial · notmeee00@gmail.com"
+    "digitalCard": {
+      "title": "Experiencia Digital",
+      "tags": ["TypeScript", "Vite", "WebGL", "Next.js"],
+      "copy": "Sitios web increíblemente rápidos y seguros diseñados para el impacto de marca. Protegidos por Cloudflare, impulsados por arquitectura moderna."
+    },
+    "systemsCard": {
+      "title": "Sistemas Empresariales",
+      "tags": ["Odoo", "Python", "PostgreSQL", "AWS"],
+      "copy": "Soluciones ERP escalables. Módulos personalizados, cumplimiento fiscal local (DGII) e integraciones complejas para operaciones basadas en datos."
+    },
+    "contactCard": {
+      "title": "Línea Directa",
+      "tags": ["Consulta", "Estrategia", "Lanzamiento"],
+      "copy": "Diseñemos tu hoja de ruta. Desde el plano inicial hasta el despliegue global, gestiono la complejidad técnica."
+    },
+    "footer": "JAOCRUZ & CO. / EST. 2026"
   },
   "configurator": {
     "title": "Configurador",
@@ -53,7 +65,7 @@
     }
   },
   "craft": {
-    "title": "Servicios",
+    "title": "Sistemas",
     "hero": {
       "line1": "Ingeniero web",
       "line2": "full-stack"
@@ -138,7 +150,7 @@
     }
   },
   "portfolio": {
-    "title": "Portafolio",
+    "title": "Digital",
     "hero": {
       "line1": "Trabajo reciente",
       "line2": "construido para tracción"

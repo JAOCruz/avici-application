@@ -14,32 +14,43 @@
     "total": "Total"
   },
   "home": {
-    "logo": "JAOCruz",
-    "tagline": "CREATIVE TECHNOLOGIST · DOMINICAN REPUBLIC",
+    "logo": "JAOCRUZ",
+    "tagline": "SPECIALIZED CONSULTANCY",
     "hero": {
-      "line1": "Websites built",
-      "line2": "for global brands",
-      "line3": "with momentum"
+      "line1": "Engineering",
+      "line2": "Growth & Logic",
+      "subtext": "Architecting high-performance digital experiences and robust Odoo enterprise systems. Bridging the gap between creative momentum and business operations."
     },
     "nav": {
-      
-    "services": {
-        "number": "01",
-        "title": "Services",
-        "description": "Stack, product features, and delivery ops"
+      "digital": {
+        "title": "Digital",
+        "description": "High-performance marketing & 3D Web"
       },
-      "portfolio": {
-        "number": "02",
-        "title": "Portfolio",
-        "description": "Recent launches and case studies"
+      "systems": {
+        "title": "Systems",
+        "description": "Enterprise ERP & Odoo Operations"
       },
       "contact": {
-        "number": "03",
         "title": "Contact",
         "description": "Start a project or request a walkthrough"
       }
     },
-    "footer": "Juan Aulio Ortiz de la Cruz · Worldwide · notmeee00@gmail.com"
+    "digitalCard": {
+      "title": "Digital Experience",
+      "tags": ["TypeScript", "Vite", "WebGL", "Next.js"],
+      "copy": "Lightning-fast, secure websites designed for brand impact. Protected by Cloudflare, powered by modern architecture."
+    },
+    "systemsCard": {
+      "title": "Enterprise Systems",
+      "tags": ["Odoo", "Python", "PostgreSQL", "AWS"],
+      "copy": "Scalable ERP solutions. Custom modules, local fiscal compliance (DGII), and complex integrations for data-driven operations."
+    },
+    "contactCard": {
+      "title": "Direct Line",
+      "tags": ["Consultation", "Strategy", "Launch"],
+      "copy": "Let's architect your roadmap. From initial blueprint to global deployment, I handle the technical complexity."
+    },
+    "footer": "JAOCRUZ & CO. / EST. 2026"
   },
   "configurator": {
     "title": "Configurator",
@@ -54,7 +65,7 @@
     }
   },
   "craft": {
-    "title": "Services",
+    "title": "Systems",
     "hero": {
       "line1": "Full-stack",
       "line2": "web engineer"
@@ -139,7 +150,7 @@
     }
   },
   "portfolio": {
-    "title": "Portfolio",
+    "title": "Digital",
     "hero": {
       "line1": "Recent work",
       "line2": "built for traction"

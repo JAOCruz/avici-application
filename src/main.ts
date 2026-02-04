@@ -278,8 +278,12 @@ import { languageSwitcherMarkup, bindLanguageSwitcher } from './components/Langu
     cursor.refresh();
   });
 
-  // Update mini player aria-labels on language change
+  // Handle language changes globally
   window.addEventListener('languageChanged', () => {
+    // Refresh current page
+    router.navigate(router.getCurrentRoute(), false, true);
+
+    // Update mini player aria-labels
     const prevBtn = miniPlayer.querySelector<HTMLButtonElement>('[data-mini-prev]');
     const toggleBtn = miniPlayer.querySelector<HTMLButtonElement>('[data-mini-toggle]');
     const nextBtn = miniPlayer.querySelector<HTMLButtonElement>('[data-mini-next]');

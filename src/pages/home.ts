@@ -1,184 +1,178 @@
 import { gsap } from 'gsap';
-import { slideUpReveal, glitchText, scaleIn } from '../utils/textAnimations';
 import { t } from '../utils/i18n';
 
 export default function home() {
+  const getTags = (key: string) => {
+    const tags = t(key, { returnObjects: true });
+    return Array.isArray(tags) ? tags : [];
+  };
+
   return `
     <div class="home-page">
       <header class="home-header">
-        <div class="logo">${t('home.logo')}</div>
-        <div class="tagline">${t('home.tagline')}</div>
+        <div class="logo-container">
+          <div class="logo-box">
+            <h1 class="logo">${t('home.logo')}</h1>
+          </div>
+          <div class="tagline-box">
+            <p class="tagline">${t('home.tagline')}</p>
+          </div>
+        </div>
+        <nav class="header-nav">
+          <a href="/portfolio" class="nav-link interactive" data-route="portfolio">${t('home.nav.digital.title')}</a>
+          <a href="/craft" class="nav-link interactive" data-route="craft">${t('home.nav.systems.title')}</a>
+          <a href="/contact" class="nav-link interactive" data-route="contact">${t('home.nav.contact.title')}</a>
+        </nav>
       </header>
 
       <main class="home-main">
-        <div class="hero-text">
-          <h1 class="hero-title">
+        <div class="hero-section">
+          <h2 class="hero-title">
             <span class="line">${t('home.hero.line1')}</span>
-            <span class="line">${t('home.hero.line2')}</span>
-            <span class="line accent">${t('home.hero.line3')}</span>
-          </h1>
+            <span class="line accent">${t('home.hero.line2')}</span>
+          </h2>
+          <p class="hero-subtext">${t('home.hero.subtext')}</p>
         </div>
 
-        <nav class="home-nav">
-          <a href="/craft" class="nav-item nav-item-video interactive" data-route="craft">
-            <video 
-              class="nav-video" 
-              loop 
-              muted 
-              playsinline
-              disablePictureInPicture
-              preload="auto"
-            >
-              <source src="/services1.webm" type="video/webm">
-            </video>
-            <div class="video-overlay">
-              <span class="nav-number">${t('home.nav.services.number')}</span>
-              <h2 class="nav-title">${t('home.nav.services.title')}</h2>
-              <p class="nav-description">${t('home.nav.services.description')}</p>
+        <div class="split-nav">
+          <!-- Digital path -->
+          <a href="/portfolio" class="split-card digital interactive" data-route="portfolio">
+            <div class="card-content">
+              <div class="tag-row">
+                ${getTags('home.digitalCard.tags').map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
+              </div>
+              <h3 class="card-title">${t('home.digitalCard.title')}</h3>
+              <p class="card-copy">${t('home.digitalCard.copy')}</p>
+            </div>
+            <div class="card-bg">
+               <div class="systems-grid-pattern"></div>
+               <video class="card-video" loop muted playsinline preload="auto">
+                <source src="/services1.webm" type="video/webm">
+              </video>
             </div>
           </a>
 
-          <a href="/portfolio" class="nav-item nav-item-video interactive" data-route="portfolio">
-            <video 
-              class="nav-video" 
-              loop 
-              muted 
-              playsinline
-              disablePictureInPicture
-              preload="auto"
-            >
-              <source src="/aesthetic1.webm" type="video/webm">
-            </video>
-            <div class="video-overlay">
-              <span class="nav-number">${t('home.nav.portfolio.number')}</span>
-              <h2 class="nav-title">${t('home.nav.portfolio.title')}</h2>
-              <p class="nav-description">${t('home.nav.portfolio.description')}</p>
+          <!-- Systems path -->
+          <a href="/craft" class="split-card systems interactive" data-route="craft">
+            <div class="card-content">
+              <div class="tag-row">
+                ${getTags('home.systemsCard.tags').map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
+              </div>
+              <h3 class="card-title">${t('home.systemsCard.title')}</h3>
+              <p class="card-copy">${t('home.systemsCard.copy')}</p>
+            </div>
+            <div class="card-bg">
+               <div class="systems-grid-pattern"></div>
+               <video class="card-video" loop muted playsinline preload="auto">
+                <source src="/aesthetic1.webm" type="video/webm">
+              </video>
             </div>
           </a>
 
-          <a href="/contact" class="nav-item nav-item-video interactive" data-route="contact">
-            <video 
-              class="nav-video" 
-              loop 
-              muted 
-              playsinline
-              disablePictureInPicture
-              preload="auto"
-            >
-              <source src="/telephone1.webm" type="video/webm">
-            </video>
-            <div class="video-overlay">
-              <span class="nav-number">${t('home.nav.contact.number')}</span>
-              <h2 class="nav-title">${t('home.nav.contact.title')}</h2>
-              <p class="nav-description">${t('home.nav.contact.description')}</p>
+          <!-- Contact path -->
+          <a href="/contact" class="split-card contact interactive" data-route="contact">
+            <div class="card-content">
+              <div class="tag-row">
+                ${getTags('home.contactCard.tags').map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
+              </div>
+              <h3 class="card-title">${t('home.contactCard.title')}</h3>
+              <p class="card-copy">${t('home.contactCard.copy')}</p>
+            </div>
+            <div class="card-bg">
+               <video class="card-video" loop muted playsinline preload="auto">
+                <source src="/telephone1.webm" type="video/webm">
+              </video>
             </div>
           </a>
-
-        </nav>
+        </div>
       </main>
 
-      <footer class="home-footer">
-        <p>${t('home.footer')}</p>
+      <footer class="home-footer-new">
+        <div class="footer-left">
+           <span class="footer-brand">${t('home.footer')}</span>
+        </div>
       </footer>
     </div>
   `;
 }
 
 export function init() {
-  // Animate hero text with slide up
-  const lines = document.querySelectorAll('.hero-title .line');
-  slideUpReveal(lines as any, 0.2);
-
-  // Scale in nav items
-  const navItems = document.querySelectorAll('.nav-item');
-  scaleIn(navItems as any, 0.8, 0.15);
-
-  // Add glitch effect to nav titles on hover
-  document.querySelectorAll('.nav-title').forEach((title) => {
-    glitchText(title as HTMLElement);
+  // Animate hero
+  gsap.from('.hero-title .line', {
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: 'power3.out'
+  });
+  
+  gsap.from('.hero-subtext', {
+    y: 20,
+    opacity: 0,
+    duration: 0.8,
+    delay: 0.4,
+    ease: 'power3.out'
   });
 
-  // Setup navigation
-  const linkItems = document.querySelectorAll('.nav-item[data-route]');
-  linkItems.forEach((item) => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault();
-      const route = (item as HTMLElement).dataset.route as any;
-      (window as any).router.navigate(route);
-    });
-  });
+  // Split cards animation
+  gsap.fromTo('.split-card', 
+    { y: 30, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      stagger: 0.15,
+      delay: 0.6,
+      ease: 'power3.out',
+      clearProps: 'opacity,transform' // Ensure inline styles are cleaned up after animation
+    }
+  );
 
-  // Video hover play/pause - for first 3 boxes
-  const hoverVideos = document.querySelectorAll('.nav-item-video:not(.nav-item-autoplay)');
-  hoverVideos.forEach((item) => {
-    const video = item.querySelector('.nav-video') as HTMLVideoElement;
-    const title = item.querySelector('.nav-title');
+  // Video and Hover handling
+  const cards = document.querySelectorAll('.split-card');
+  cards.forEach(card => {
+    const video = card.querySelector('video') as HTMLVideoElement;
     
-    if (!video) return;
-
-    item.addEventListener('mouseenter', () => {
-      video.play();
-      
-      if (title) {
-        gsap.to(title, {
-          x: 20,
-          duration: 0.3,
-          ease: 'power2.out',
-        });
-      }
-    });
-
-    item.addEventListener('mouseleave', () => {
-      video.pause();
-      video.currentTime = 0;
-      
-      if (title) {
-        gsap.to(title, {
-          x: 0,
-          duration: 0.3,
-          ease: 'power2.out',
-        });
-      }
-    });
-  });
-
-  // 4th box - always playing with hover effect
-  const autoplayItem = document.querySelector('.nav-item-autoplay');
-  if (autoplayItem) {
-    const video = autoplayItem.querySelector('.nav-video') as HTMLVideoElement;
-    const title = autoplayItem.querySelector('.nav-title');
-    
+    // Attempt auto-play for all grid videos (muted)
     if (video) {
       video.play().catch(() => {
-        // Autoplay was prevented
+        // Fallback for browsers that block autoplay
+        const playOnInteraction = () => {
+          video.play().catch(() => {});
+          document.removeEventListener('click', playOnInteraction);
+        };
+        document.addEventListener('click', playOnInteraction);
       });
     }
+    
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, { y: -10, duration: 0.6, ease: 'power2.out' });
+      if (video) {
+        video.play().catch(() => {});
+        gsap.to(video, { opacity: 1, duration: 0.6 });
+      }
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { y: 0, duration: 0.6, ease: 'power2.out' });
+      if (video) {
+        gsap.to(video, { opacity: 0.6, duration: 0.6 });
+      }
+    });
 
-    if (title) {
-      autoplayItem.addEventListener('mouseenter', () => {
-        gsap.to(title, {
-          x: 20,
-          duration: 0.3,
-          ease: 'power2.out',
-        });
-      });
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const route = (card as HTMLElement).dataset.route as any;
+      if (route) (window as any).router.navigate(route);
+    });
+  });
 
-      autoplayItem.addEventListener('mouseleave', () => {
-        gsap.to(title, {
-          x: 0,
-          duration: 0.3,
-          ease: 'power2.out',
-        });
-      });
-    }
-  }
-
-  // Listen for language changes
-  window.addEventListener('languageChanged', () => {
-    const router = (window as any).router;
-    if (router) {
-      const currentRoute = router.getCurrentRoute();
-      router.navigate(currentRoute, false, true);
-    }
+  // Nav links
+  document.querySelectorAll('.header-nav .nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const route = (link as HTMLElement).dataset.route as any;
+      if (route) (window as any).router.navigate(route);
+    });
   });
 }
