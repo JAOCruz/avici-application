@@ -47,7 +47,7 @@ export default function home() {
             <div class="card-bg">
                <div class="systems-grid-pattern"></div>
                <video class="card-video" loop muted playsinline preload="auto">
-                <source src="/services1.webm" type="video/webm">
+                <source src="cubes.mp4" type="video/mp4">
               </video>
             </div>
           </a>
@@ -64,7 +64,7 @@ export default function home() {
             <div class="card-bg">
                <div class="systems-grid-pattern"></div>
                <video class="card-video" loop muted playsinline preload="auto">
-                <source src="/aesthetic1.webm" type="video/webm">
+                <source src="/fabricshort.webm" type="video/webm">
               </video>
             </div>
           </a>
@@ -80,7 +80,7 @@ export default function home() {
             </div>
             <div class="card-bg">
                <video class="card-video" loop muted playsinline preload="auto">
-                <source src="/telephone1.webm" type="video/webm">
+                <source src="/handshake.mp4" type="video/mp4">
               </video>
             </div>
           </a>
